@@ -12,7 +12,8 @@ elements.vanadium_ore = {,
     meltinto: molten_vanadium_ore,
     density: 6.1
 
-                },
+                };
+
 // ---------------- Molten Vanadium Ore ----------------
 elements.molten_vanadium_ore = {,
     color: ["#545454", "#3b3b3b", "#8c8c8c"],
@@ -23,5 +24,5 @@ elements.molten_vanadium_ore = {,
     stateLow: vanadium_ore,
     density: 6.1
 
-                },
+                };
 
