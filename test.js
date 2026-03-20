@@ -3,7 +3,7 @@
  *****************************/
 
 // ---------------- Vanadium Ore ----------------
-elements.vanadium_ore = {
+elements.vanadium_ore = {,
     color: ["#545454", "#3b3b3b", #8c8c8c],
     behavior: behaviors.POWDER,
     category: "powders",
@@ -12,13 +12,13 @@ elements.vanadium_ore = {
     meltinto: molten_vanadium_ore,
     density: 6.1
 
-                }
-            }
-        }
-    }
-}
+                },
+            },
+        },
+    },
+},
 // ---------------- Molten Vanadium Ore ----------------
-elements.molten_vanadium_ore = {
+elements.molten_vanadium_ore = {,
     color: ["#545454", "#3b3b3b", #8c8c8c],
     behavior: behaviors.LIQUID,
     category: "states",
@@ -27,8 +27,8 @@ elements.molten_vanadium_ore = {
     stateLow: vanadium_ore,
     density: 6.1
 
-                }
-            }
-        }
-    }
-}
+                },
+            },
+        },
+    },
+},
