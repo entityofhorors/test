@@ -182,12 +182,12 @@ if (!elements.sodium.reactions) { elements.sodium.reactions = {} }
 elements.sodium.reactions.calcium = {"elem1":null, "elem2": "poison_gas"};
  // ---------------- Coal ----------------
     elements.coal = {
-        color: "#ff8000",
+        color: ["#ff8000", "#212121", "#121212"],
         behavior: behaviors.POWDER,
         category: "powders",
         state: "solid",
         density: 1400,
-        burn: 100,
+        burn: 45,
         burnTime: 500,
         burnInto: ["carbon_dioxide"%25, "steam"%30, "methane"%10]
 
