@@ -186,9 +186,5 @@
 
      };
  // ---------------- Sulfur Trioxide Reaction ----------------
-    elements.oxygen.reactions.sulfur_gas = {
-        elem1: null, 
-        elem2: "sulfur_trioxide", 
-          
-      };
+
 
