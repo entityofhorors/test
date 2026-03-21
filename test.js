@@ -20,7 +20,7 @@ elements.molten_vanadium_ore = {
     color: ["#770000", "#570000", "#990000"],
     behavior: behaviors.LIQUID,
     category: "states",
-    state: "solid",
+    state: "liquid",
     density: 6.1,
     temp: 20,
     tempLow: 690,
@@ -36,10 +36,7 @@ elements.test = {
     state: "solid",
     density: 15,
     temp: 22,
-    tempHigh: 35,
-    stateHigh: "molten_testium",
     reactions: {
-        "ilitium": { "elem1":"tralphium", "elem2":null },
-        "nickel": { "elem1":"iron", "elem2":null },
+           "nickel": { "elem1":"iron", "elem2":null },
     }
 };
