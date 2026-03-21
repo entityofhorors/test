@@ -12,4 +12,4 @@
         tempHigh: 1500,
         stateHigh: "steam",
         };
-    });
+  
