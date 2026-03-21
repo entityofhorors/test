@@ -441,11 +441,11 @@
      };
  // ---------------- Unenriched Uranium ----------------
     elements.unenriched_uranium = {
-        color: ["#456340", "#163819", "#696969",],
+        color: ["#456340", "#163819", "#325421",],
         behavior: [ 
-         "M1,CR:radiation%.03|M1,CR:radiation%.03|M1,CR:radiation%.03",
-         "M2,CR:radiation%.03|XX|M2,CR:radiation%.03",
-         "M2,CR:radiation%.03|M2,CR:radiation%.03|M2,CR:radiation%.03",
+         "M1 AND CR:radiation%.03|M1 AND CR:radiation%.03|M1 AND CR:radiation%.03",
+         "M2 AND CR:radiation%.03|XX|M2 AND CR:radiation%.03",
+         "M2 AND CR:radiation%.03|M2 AND CR:radiation%.03|M2 AND CR:radiation%.03",
     ],
         category: "gases",
         state: "gas",
