@@ -178,5 +178,8 @@
      };
 if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
 elements.oxygen.reactions.suflur_gas = { "elem1":null, "elem2": "poion_gas"};
+if (!elements.sodium.reactions) { elements.sodium.reactions = {} }
+elements.sodium.reactions.calcium = {"elem1":null, "elem2": "poion_gas"};
+
 
 
