@@ -31,7 +31,7 @@
                     }
                 }
             }
-        }
+        
      };
  // ---------------- Molten Vanadium Ore ----------------
     elements.molten_vanadium_ore = {
