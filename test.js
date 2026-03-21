@@ -1,5 +1,5 @@
 //*****************************
-// URANIUM ENRICHMENT MOD BY K.T
+// URANIUM ENRICHMENT MOD BY E303
 // *****************************
 
 runAfterLoad(function() {
