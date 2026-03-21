@@ -396,8 +396,8 @@
         color: ["#456340", "#163819", "#696969",],
         behavior: [ 
          "CR:radiation%.02|CR:radiation%.02|CR:radiation%.02",
-         "M2,CR:radiation%.02|XX|M2,CR:radiation%.02",
-         "M2,CR:radiation%.02|M1|M2,CR:radiation%.02",
+         "M2 AND CR:radiation%.02|XX|M2 AND CR:radiation%.02",
+         "M2 AND CR:radiation%.02|M1|M2 AND CR:radiation%.02",
     ],
         category: "liquids",
         state: "liquid",
