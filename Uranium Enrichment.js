@@ -149,8 +149,8 @@
             }
         }
      };
- // ---------------- Vanadium Oxide ----------------
-    elements.vanadium_oxide = {
+ // ---------------- Vanadium Catalyst ----------------
+    elements.vanadium_catalyst = {
         color: "#ffc800",
         behavior: behaviors.POWDER,
         category: "powders",
@@ -172,7 +172,7 @@
 
                 if (n.element === "water") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "vanadium_oxide_water");
+                        changePixel(pixel, "vanadium_catalyst_water");
                         deletePixel(c.x, c.y);
                     }
                 }
@@ -330,7 +330,7 @@
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "vanadium_oxide_water") {
+                if (n.element === "vanadium_catalyst_water") {
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "sulfuric_acid");
                         deletePixel(c.x, c.y);
@@ -347,8 +347,8 @@
         state: "liquid",
         density: 1840,
      };
- // ---------------- Vanadium Oxide Water ----------------
-    elements.vanadium_oxide_water = {
+ // ---------------- Vanadium Catalyst Water ----------------
+    elements.vanadium_catalyst_water = {
         color: "#ffc800",
         behavior: behaviors.LIQUID,
         category: "liquids",
@@ -412,7 +412,7 @@
     ],
         category: "liquids",
         state: "liquid",
-        density: 2500,
+        density: 2800,
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -493,8 +493,8 @@
 // ---------------- Depleted Uranium ----------------
     elements.depleted_uranium = {
         color: ["#171f14", "#0f120e", "#133009"],
-        behavior: behaviors.POWDER,
-        category: "powders",
+        behavior: behaviors.SOLID,
+        category: "solids",
         state: "solid",
         density: 19050,
         tempHigh: 2880,
