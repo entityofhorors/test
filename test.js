@@ -177,6 +177,6 @@
         }
      };
 if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
-elements.oxygen.reactions.suflur_gas = { "elem1":null, "elem2": "steam"};
+elements.oxygen.reactions.suflur_gas = { "elem1":null, "elem2": "poion_gas"};
 
 
