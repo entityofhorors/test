@@ -489,7 +489,7 @@
         stateHigh: "molten_depleted_uranium"
      };
 // ---------------- Molten Depleted Uranium ----------------
-    elements.depleted_uranium = {
+    elements.molten_depleted_uranium = {
         color: ["#63370a", "#570600", "#ffd000"],
         behavior: behaviors.LIQUID,
         category: "states",
