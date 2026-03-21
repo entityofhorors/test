@@ -153,33 +153,12 @@
         category: "powders",
         state: "solid",
         density: 3360,
-                  tick: function(pixel) {
-            let coords = [
-                {x: pixel.x+1, y: pixel.y},
-                {x: pixel.x-1, y: pixel.y},
-                {x: pixel.x, y: pixel.y+1},
-                {x: pixel.x, y: pixel.y-1},
-            ];
 
-            for (let c of coords) {
-                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
-
-                let n = pixelMap[c.x][c.y];
-                if (!n) continue;
-
-                if (n.element === "vanadium_oxide") {
-                    if (Math.random() < 0.1) {
-                        changePixel(pixel, "vanadium_oxide");
-                        deletePixel(c.x, c.y);
-                    }
-                }
-            }
-        }
      };
-if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
-elements.oxygen.reactions.suflur_gas = { "elem1":null, "elem2": "poion_gas"};
-if (!elements.sodium.reactions) { elements.sodium.reactions = {} }
-elements.sodium.reactions.calcium = {"elem1":null, "elem2": "poison_gas"};
+//if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
+//elements.oxygen.reactions.suflur_gas = { "elem1":null, "elem2": null};
+//if (!elements.sodium.reactions) { elements.sodium.reactions = {} }
+//elements.sodium.reactions.calcium = {"elem1":null, "elem2": null};
  // ---------------- Coal ----------------
     elements.coal = {
         color: ["#303030", "#212121", "#121212"],
@@ -264,6 +243,18 @@ elements.sodium.reactions.calcium = {"elem1":null, "elem2": "poison_gas"};
             }
         }
      };
+ // ---------------- Calcium Sulfate ----------------
+    elements.calcium_sulfate = {
+        color: ["#c9c9c9", "#e0d7af", "#998e5c",],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 3360,
+        tempHigh: 1700,
+        stateHigh: ["molten_calcium", "carbon_dioxide", "sulfur_dioxide"],
+
+     };
+
 
 
 
