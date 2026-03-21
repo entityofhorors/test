@@ -360,8 +360,8 @@
     elements.radioactive_ore = {
         color: ["#263623", "#102912", "#545454",],
         behavior: [ 
-         "CR:radiation%.01|CR:radiation%.01|CR:radiation%.01",
-         "CR:radiation%.01|XX|CR:radiation%.01",
+         "CR:radiation%.02|CR:radiation%.02|CR:radiation%.02",
+         "CR:radiation%.02|XX|CR:radiation%.02",
          "M2|M1|M2",
     ],
         category: "powders",
@@ -395,9 +395,9 @@
     elements.radioactive_slurry = {
         color: ["#456340", "#163819", "#696969",],
         behavior: [ 
-         "CR:radiation%.01|CR:radiation%.01|CR:radiation%.01",
-         "M2,CR:radiation%.01|XX|M2,CR:radiation%.01",
-         "CR:radiation%.01|M1|CR:radiation%.01",
+         "CR:radiation%.02|CR:radiation%.02|CR:radiation%.02",
+         "M2,CR:radiation%.02|XX|M2,CR:radiation%.02",
+         "CR:radiation%.02|M1|CR:radiation%.02",
     ],
         category: "liquids",
         state: "liquid",
@@ -428,7 +428,11 @@
  // ---------------- Yellowcake ----------------
     elements.yellowcake = {
         color: "#bfb300",
-        behavior: behaviors.POWDER,
+        behavior: [ 
+         "CR:radiation%.03|CR:radiation%.03|CR:radiation%.03",
+         "CR:radiation%.03|XX|CR:radiation%.03",
+         "M2|M1|M2",
+    ],
         category: "powders",
         state: "solid",
         density: 2000,
@@ -439,9 +443,9 @@
     elements.unenriched_uranium = {
         color: ["#456340", "#163819", "#696969",],
         behavior: [ 
-         "M2,CR:radiation%.01|M2,CR:radiation%.01|M2,CR:radiation%.01",
-         "M2,CR:radiation%.01|XX|M1,CR:radiation%.01",
-         "M2,CR:radiation%.01|M2,CR:radiation%.01|M2,CR:radiation%.01",
+         "M2,CR:radiation%.03|M2,CR:radiation%.03|M2,CR:radiation%.03",
+         "M2,CR:radiation%.03|XX|M1,CR:radiation%.03",
+         "M2,CR:radiation%.03|M2,CR:radiation%.03|M2,CR:radiation%.03",
     ],
         category: "gases",
         state: "gas",
