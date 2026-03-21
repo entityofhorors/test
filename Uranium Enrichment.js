@@ -188,7 +188,7 @@
     elements.coal = {
         color: ["#303030", "#212121", "#121212"],
         behavior: behaviors.POWDER,
-        category: "powders",
+        category: "land",
         state: "solid",
         density: 1400,
         burn: 45,
@@ -477,7 +477,7 @@
                 if (!n) continue;
 
                 if (n.element === "electric") {
-                    if (Math.random()<0.005){changePixel(pixel, "uranium")} else {changePixel(pixel, "depleted_uranium")}
+                    if (Math.random()<0.5){changePixel(pixel, "uranium")} else {changePixel(pixel, "depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
                     }
@@ -509,7 +509,7 @@
         density: 19050,
         temp: 2880,
         tempLow: 2880,
-        stateLOW: "depleted_uranium",
+        stateLow: "depleted_uranium",
      };
 if (!elements.copper.reactions){elements.copper.reactions = {}}
 elements.copper.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
