@@ -397,7 +397,7 @@
         behavior: [ 
          "CR:radiation%.02|CR:radiation%.02|CR:radiation%.02",
          "M2,CR:radiation%.02|XX|M2,CR:radiation%.02",
-         "CR:radiation%.02|M1|CR:radiation%.02",
+         "M2,CR:radiation%.02|M1|M2,CR:radiation%.02",
     ],
         category: "liquids",
         state: "liquid",
@@ -443,8 +443,8 @@
     elements.unenriched_uranium = {
         color: ["#456340", "#163819", "#696969",],
         behavior: [ 
-         "M2,CR:radiation%.03|M2,CR:radiation%.03|M2,CR:radiation%.03",
-         "M2,CR:radiation%.03|XX|M1,CR:radiation%.03",
+         "M1,CR:radiation%.03|M1,CR:radiation%.03|M1,CR:radiation%.03",
+         "M2,CR:radiation%.03|XX|M2,CR:radiation%.03",
          "M2,CR:radiation%.03|M2,CR:radiation%.03|M2,CR:radiation%.03",
     ],
         category: "gases",
