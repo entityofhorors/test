@@ -211,10 +211,10 @@
         state: "solid",
         density: 800,
         tempHigh: 650, 
-        stateHigh: "vandium_pentoxide"
+        stateHigh: "vanadium_pentoxide"
     };
  // ---------------- Vanadium Pentoxide ----------------
-    elements.vandium_pentoxide = {
+    elements.vanadium_pentoxide = {
         color: ["#8a3700", "#ab4502", "#783000",],
         behavior: behaviors.POWDER,
         category: "powders",
