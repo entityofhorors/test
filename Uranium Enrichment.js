@@ -6,7 +6,7 @@
     elements.vanadium_ore = {
         color: ["#403933", "#292725", "#858585",],
         behavior: behaviors.POWDER,
-        category: "powders",
+        category: "land",
         state: "solid",
         density: 3000,
         tempHigh: 1500,
@@ -364,7 +364,7 @@
          "CR:radiation%.02|XX|CR:radiation%.02",
          "M2|M1|M2",
     ],
-        category: "powders",
+        category: "land",
         state: "solid",
         density: 3000,
         tempHigh: 1500,
@@ -486,5 +486,15 @@
         state: "solid",
         density: 19050,
         tempHigh: 2880,
-        stateHigh: "unenriched_uranium"
+        stateHigh: "molten_depleted_uranium"
+     };
+// ---------------- Molten Depleted Uranium ----------------
+    elements.depleted_uranium = {
+        color: ["#63370a", "#570600", "#ffd000"],
+        behavior: behaviors.LIQUID,
+        category: "states",
+        state: "liquid",
+        density: 19050,
+        tempLow: 2880,
+        stateLOW: "depleted_uranium"
      };
