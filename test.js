@@ -97,7 +97,7 @@
 
                 if (n.element === "water") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "vanadium");
+                        changePixel(pixel, "redcake");
                         deletePixel(c.x, c.y);
                     }
                 }
@@ -190,10 +190,81 @@ elements.sodium.reactions.calcium = {"elem1":null, "elem2": "poison_gas"};
         burn: 45,
         burnTime: 300,
         tempHigh: 2500,
-        stateHigh: "carbon_dioxide",
+        stateHigh: "fossil_feul_emissions",
         
 
      };
+ // ---------------- Fossil Feul Emissions ----------------
+    elements.fossil_feul_emissions = {
+        color: "#262626",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 1900,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "limestone") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "calcium_sulfate");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Redcake ----------------
+    elements.sodium_vanadate = {
+        color: ["#820d0d", "#a60000", "#c40000"],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 800,
+        tempHigh: 650, 
+        stateHigh: "vandium_pentoxide"
+    };
+ // ---------------- Vanadium Pentoxide ----------------
+    elements.vandium_pentoxide = {
+        color: ["#8a3700", "#ab4502", "#783000",],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 3360,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "metal_scrap") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "vanadium");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+
 
 
 
