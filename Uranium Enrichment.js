@@ -465,7 +465,7 @@
                 if (!n) continue;
 
                 if (n.element === "electric") {
-                    if (Math.random()<0.5){changePixel(pixel, "uranium")} else {changePixel(pixel, "depleted_uranium")}
+                    if (Math.random()<0.005){changePixel(pixel, "uranium")} else {changePixel(pixel, "depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
                     }
@@ -498,3 +498,11 @@
         tempLow: 2880,
         stateLOW: "depleted_uranium"
      };
+if (!elements.copper.reactions}{elements.copper.reactions = {}}
+elements.copper.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
+ if (!elements.iron.reactions}{elements.copper.reactions = {}}
+elements.iron.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
+if (!elements.gold.reactions}{elements.copper.reactions = {}}
+elements.gold.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
+ if (!elements.silver.reactions}{elements.copper.reactions = {}}
+elements.silver.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
