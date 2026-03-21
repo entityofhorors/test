@@ -153,6 +153,28 @@
         category: "powders",
         state: "solid",
         density: 3360,
+                      tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "water") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "vanadium_oxide_water");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
 
      };
 //if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
@@ -305,7 +327,7 @@
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "vanadium_oxide") {
+                if (n.element === "vanadium_oxide_water") {
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "sulfuric_acid");
                         deletePixel(c.x, c.y);
@@ -314,13 +336,58 @@
             }
         }
      };
- // ---------------- Vanadium Slurry ----------------
+ // ---------------- Sulphuric Acid ----------------
     elements.sulfuric_acid = {
         color: "#ededed",
         behavior: behaviors.LIQUID,
         category: "liquids",
         state: "liquid",
         density: 1840,
+     };
+ // ---------------- Vanadium Oxide Water ----------------
+    elements.vanadium_oxide_water = {
+        color: "#7a7a7a",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 2360,
+
+     };
+ // ---------------- Radioactive Ore ----------------
+    elements.radioactive_ore = {
+        color: ["#403933", "#292725", "#858585",],
+        behavior: [ 
+         "CR:radiation%2|CR:radiation%2|CR:radiation%2",
+         "CR:radiation%2|XX|CR:radiation",
+         "CR:radiation%2|CR:radiation%2|CR:radiation%2",
+    ],
+        category: "powders",
+        state: "solid",
+        density: 3500,
+        tempHigh: 1500,
+        stateHigh: "molten_radioactive_ore",
+                 // tick: function(pixel) {
+           // let coords = [
+            //    {x: pixel.x+1, y: pixel.y},
+            //    {x: pixel.x-1, y: pixel.y},
+            //    {x: pixel.x, y: pixel.y+1},
+            //    {x: pixel.x, y: pixel.y-1},
+           // ];
+
+            //for (let c of coords) {
+             //   if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+              //  let n = pixelMap[c.x][c.y];
+              //  if (!n) continue;
+
+              //  if (n.element === "water") {
+              //      if (Math.random() < 0.1) {
+              //          changePixel(pixel, "vanadium_slurry");
+              //          deletePixel(c.x, c.y);
+             //       }
+           //     }
+        //    }
+      //  }
      };
 
 
