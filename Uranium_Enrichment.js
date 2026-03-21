@@ -477,10 +477,12 @@
                 if (!n) continue;
 
                 if (n.element === "electric") {
+                    if (Math.random() < 0.0001) {
                     if (Math.random()<0.5){changePixel(pixel, "uranium")} else {changePixel(pixel, "depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
                     }
+                }
                 if (n.element === "carbon_dioxide") {
                     if (Math.random()<0.5){changePixel(pixel, "methane")} else {changePixel(pixel, "methane")}
                         deletePixel(c.x, c.y);
@@ -488,7 +490,7 @@
                     }
                 }
             }
-        
+         
      };
 // ---------------- Depleted Uranium ----------------
     elements.depleted_uranium = {
