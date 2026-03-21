@@ -180,6 +180,18 @@ if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
 elements.oxygen.reactions.suflur_gas = { "elem1":null, "elem2": "poion_gas"};
 if (!elements.sodium.reactions) { elements.sodium.reactions = {} }
 elements.sodium.reactions.calcium = {"elem1":null, "elem2": "poison_gas"};
+ // ---------------- Coal ----------------
+    elements.coal = {
+        color: "#ff8000",
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 1400,
+        burn: 100,
+        burnTime: 500,
+        burnInto: ["carbon_dioxide"%25, "steam"%30, "methane"%10]
+
+     };
 
 
 
