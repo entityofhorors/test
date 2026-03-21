@@ -8,7 +8,7 @@
         behavior: behaviors.POWDER,
         category: "powders",
         state: "solid",
-        density: 3500,
+        density: 3000,
         tempHigh: 1500,
         stateHigh: "molten_vanadium_ore",
                   tick: function(pixel) {
@@ -40,6 +40,7 @@
         category: "states",
         state: "liquid",
         density: 3500,
+        temp: 1500,
         tempLow: 1500,
         stateLow: "vanadium_ore",
     };
@@ -49,6 +50,8 @@
         behavior: behaviors.LIQUID,
         category: "liquids",
         state: "liquid",
+        tempLow: 0,
+        stateLow: ["ice", "vanadium_ore"],
         density: 2500,
                   tick: function(pixel) {
             let coords = [
@@ -120,6 +123,7 @@
         category: "states",
         state: "liquid",
         density: 6110,
+        temp: 1900,
         tempLow: 1900,
         stateLow: "vanadium",
                   tick: function(pixel) {
@@ -354,39 +358,116 @@
      };
  // ---------------- Radioactive Ore ----------------
     elements.radioactive_ore = {
-        color: ["#403933", "#292725", "#858585",],
+        color: ["#263623", "#102912", "#545454",],
         behavior: [ 
-         "CR:radiation%1|CR:radiation%1|CR:radiation%1",
-         "CR:radiation%1|XX|CR:radiation%1",
+         "CR:radiation%.01|CR:radiation%.01|CR:radiation%.01",
+         "CR:radiation%.01|XX|CR:radiation%.01",
          "M2|M1|M2",
     ],
         category: "powders",
         state: "solid",
-        density: 3500,
+        density: 3000,
         tempHigh: 1500,
         stateHigh: "molten_radioactive_ore",
-                 // tick: function(pixel) {
-           // let coords = [
-            //    {x: pixel.x+1, y: pixel.y},
-            //    {x: pixel.x-1, y: pixel.y},
-            //    {x: pixel.x, y: pixel.y+1},
-            //    {x: pixel.x, y: pixel.y-1},
-           // ];
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
 
-            //for (let c of coords) {
-             //   if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
 
-              //  let n = pixelMap[c.x][c.y];
-              //  if (!n) continue;
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
 
-              //  if (n.element === "water") {
-              //      if (Math.random() < 0.1) {
-              //          changePixel(pixel, "vanadium_slurry");
-              //          deletePixel(c.x, c.y);
-             //       }
-           //     }
-        //    }
-      //  }
+                if (n.element === "water") {
+                    if (Math.random()<0.5){changePixel(pixel, "radioactive_slurry")} else {changePixel(pixel, "rock")}
+                        deletePixel(c.x, c.y);
+                    }
+               }
+           }
+ 
+     };
+ // ---------------- Radioactive Slurry ----------------
+    elements.radioactive_slurry = {
+        color: ["#456340", "#163819", "#696969",],
+        behavior: [ 
+         "CR:radiation%.01|CR:radiation%.01|CR:radiation%.01",
+         "M2,CR:radiation%.01|XX|M2,CR:radiation%.01",
+         "CR:radiation%.01|M1|CR:radiation%.01",
+    ],
+        category: "liquids",
+        state: "liquid",
+        density: 2500,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "sulfuric_acid") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "yellowcake");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Yellowcake ----------------
+    elements.yellowcake = {
+        color: "#bfb300",
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 2000,
+        tempHigh: 2880,
+        stateHigh: "unenriched_uranium"
+     };
+ // ---------------- Unenriched Uranium ----------------
+    elements.unenriched_uranium = {
+        color: ["#456340", "#163819", "#696969",],
+        behavior: [ 
+         "M2,CR:radiation%.01|M2,CR:radiation%.01|M2,CR:radiation%.01",
+         "M2,CR:radiation%.01|XX|M1,CR:radiation%.01",
+         "M2,CR:radiation%.01|M2,CR:radiation%.01|M2,CR:radiation%.01",
+    ],
+        category: "gases",
+        state: "gas",
+        density: 2500,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "electric") {
+                    if (Math.random()<0.5){changePixel(pixel, "uranium")} else {changePixel(pixel, "depleted_uranium")}
+                        deletePixel(c.x, c.y);
+                        
+                    }
+                }
+            }
+        
      };
 
 
