@@ -1,6 +1,14 @@
-/*****************************
- URANIUM ENRICHMENT MOD BY K.T
- *****************************/
+//*****************************
+// URANIUM ENRICHMENT MOD BY K.T
+// *****************************
+
+currentColor = "#80ffff";
+function deletecoconut() {
+    throw "The game crashed, because you deleted the coconut."
+}
+let rPOWDER = behaviors.POWDER
+console.log("Welcome to the console.");
+console.log(rPOWDER);
 
 // ---------------- Vanadium Ore ----------------
 elements.vanadium_ore = {
@@ -36,7 +44,5 @@ elements.test = {
     state: "solid",
     density: 15,
     temp: 22,
-    reactions: {
-           "nickel": { "elem1":"iron", "elem2":null },
     }
 };
