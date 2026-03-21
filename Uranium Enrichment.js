@@ -498,4 +498,11 @@
         tempLow: 2880,
         stateLOW: "depleted_uranium"
      };
-
+if (!elements.copper.reactions){elements.copper.reactions = {}}
+elements.copper.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
+ if (!elements.iron.reactions){elements.copper.reactions = {}}
+elements.iron.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
+if (!elements.gold.reactions){elements.copper.reactions = {}}
+elements.gold.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
+ if (!elements.silver.reactions){elements.copper.reactions = {}}
+elements.silver.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
