@@ -9,10 +9,10 @@ elements.vanadium_ore = {
     behavior: behaviors.POWDER,
     category: "powders",
     state: "solid",
+    density: 6.1,
     temp: 20,
     tempHigh: 690,
     stateHigh: "molten_vanadium_ore",
-    density: 6.1
      }
 };
 // ---------------- Molten Vanadium Ore ----------------
@@ -21,8 +21,25 @@ elements.molten_vanadium_ore = {
     behavior: behaviors.LIQUID,
     category: "states",
     state: "solid",
+    density: 6.1,
+    temp: 20,
     tempLow: 690,
     stateLow: "vanadium_ore",
-    density: 6.1
+    }
+};
+// ---------------- Testium ----------------
+elements.test = {
+    name: "Testium",
+    color: "#ff0000",
+    behavior: behaviors.POWDER,
+    category: "land",
+    state: "solid",
+    density: 15,
+    temp: 22,
+    tempHigh: 35,
+    stateHigh: "molten_testium",
+    reactions: {
+        "ilitium": { "elem1":"tralphium", "elem2":null },
+        "nickel": { "elem1":"iron", "elem2":null },
     }
 };
