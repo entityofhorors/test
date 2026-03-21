@@ -13,4 +13,5 @@ runAfterLoad(function() {
         density: 3500,
         tempHigh: 1500,
         stateHigh: "steam",
+        }
     };
