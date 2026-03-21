@@ -8,15 +8,15 @@ elements.vanadium_ore = {
     behavior: behaviors.POWDER,
     category: "powders",
     state: "solid",
-    meltingPoint: 690,
-    meltinto: molten_vanadium_ore,
+    tempHigh: 690,
+    stateHigh: molten_vanadium_ore,
     density: 6.1
 
                 };
 
 // ---------------- Molten Vanadium Ore ----------------
 elements.molten_vanadium_ore = {
-    color: ["#545454", "#3b3b3b", "#8c8c8c"],
+    color: ["#770000", "#570000", "#990000"],
     behavior: behaviors.LIQUID,
     category: "states",
     state: "solid",
