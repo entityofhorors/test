@@ -189,7 +189,9 @@ elements.sodium.reactions.calcium = {"elem1":null, "elem2": "poison_gas"};
         density: 1400,
         burn: 45,
         burnTime: 300,
-        burnInto: ["carbon_dioxide"%25, "steam"%30, "methane"%10]
+        tempHigh: 2500,
+        stateHigh: ["carbon_dioxide"%25, "steam"%30, "methane"%10],
+        burnInto: ["carbon_dioxide"%25, "steam"%30, "methane"%10],
 
      };
 
