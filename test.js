@@ -139,10 +139,49 @@
 
                 if (n.element === "oxygen") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "steam");
+                        changePixel(pixel, "vanadium_oxide");
                         deletePixel(c.x, c.y);
                     }
                 }
             }
         }
      };
+ // ---------------- Vanadium Oxide ----------------
+    elements.vanadium_oxide = {
+        color: "#ffc800",
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 3360,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "vanadium_oxide") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "vanadium_oxide");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Sulfur Trioxide ----------------
+    elements.sulfur_trioxide = {
+        color: "#ffc800",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 1920,
+    };
+
