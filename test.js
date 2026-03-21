@@ -2,8 +2,6 @@
 // URANIUM ENRICHMENT MOD BY E303
 // *****************************
 
-runAfterLoad(function() {
-    
  // ---------------- Vanadium Ore ----------------
     elements.vanadium_ore = {
         color: "#38ce31",
