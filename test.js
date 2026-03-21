@@ -225,7 +225,7 @@ elements.sodium.reactions.calcium = {"elem1":null, "elem2": "poison_gas"};
         }
      };
  // ---------------- Redcake ----------------
-    elements.sodium_vanadate = {
+    elements.redcake = {
         color: ["#820d0d", "#a60000", "#c40000"],
         behavior: behaviors.POWDER,
         category: "powders",
