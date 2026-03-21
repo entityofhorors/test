@@ -254,6 +254,74 @@
         stateHigh: ["molten_calcium", "carbon_dioxide", "sulfur_dioxide"],
 
      };
+ // ---------------- Sulfur Dioxide ----------------
+    elements.sulfur_dioxide = {
+        color: "#e8deb0",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 2,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "vanadium_pentoxide") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "sulfur_trioxide");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Sulfur Trioxide ----------------
+    elements.sulfur_trioxide = {
+        color: "#e6d68c",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 2,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "vanadium_oxide") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "sulfuric_acid");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Vanadium Slurry ----------------
+    elements.sulfuric_acid = {
+        color: "#ededed",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 1840,
+     };
 
 
 
