@@ -391,6 +391,17 @@
            }
  
      };
+// ---------------- Molten Radioactive Ore ----------------
+    elements.molten_radioactive_ore = {
+        color: ["#63370a", "#570600", "#ffd000"],
+        behavior: behaviors.LIQUID,
+        category: "states",
+        state: "liquid",
+        density: 19050,
+        temp: 1500,
+        tempLow: 1500,
+        stateLOW: "radioactive_ore",
+     };
  // ---------------- Radioactive Slurry ----------------
     elements.radioactive_slurry = {
         color: ["#456340", "#163819", "#696969",],
@@ -450,6 +461,7 @@
         category: "gases",
         state: "gas",
         density: 2500,
+        temp: 2000,
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -495,8 +507,9 @@
         category: "states",
         state: "liquid",
         density: 19050,
+        temp: 2880,
         tempLow: 2880,
-        stateLOW: "depleted_uranium"
+        stateLOW: "depleted_uranium",
      };
 if (!elements.copper.reactions){elements.copper.reactions = {}}
 elements.copper.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
