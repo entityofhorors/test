@@ -176,12 +176,11 @@
             }
         }
      };
- // ---------------- Sulfur Trioxide ----------------
-    elements.sulfur_trioxide = {
-        color: "#ffc800",
-        behavior: behaviors.GAS,
-        category: "gases",
-        state: "gas",
-        density: 1920,
+ // ---------------- Sulfur Trioxide Reaction ----------------
+    elements.oxygen.reactions.sulfur_gas = {
+        "sulfur_gas" {
+        elem1: null, 
+        elem2: "sulfur_trioxide", 
+          
+         }
     };
-
