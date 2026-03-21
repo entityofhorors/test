@@ -349,7 +349,7 @@
      };
  // ---------------- Vanadium Oxide Water ----------------
     elements.vanadium_oxide_water = {
-        color: "#7a7a7a",
+        color: "#ffc800",
         behavior: behaviors.LIQUID,
         category: "liquids",
         state: "liquid",
@@ -469,12 +469,22 @@
                         deletePixel(c.x, c.y);
                         
                     }
+                if (n.element === "carbon_dioxide") {
+                    if (Math.random()<0.5){changePixel(pixel, "methane")} else {changePixel(pixel, "methane")}
+                        deletePixel(c.x, c.y);
+                        
+                    }
                 }
             }
         
      };
-
-
-
-
-
+// ---------------- Depleted Uranium ----------------
+    elements.depleted_uranium = {
+        color: ["#171f14", "#0f120e", "#133009"],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 19050,
+        tempHigh: 2880,
+        stateHigh: "unenriched_uranium"
+     };
