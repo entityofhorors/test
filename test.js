@@ -356,9 +356,9 @@
     elements.radioactive_ore = {
         color: ["#403933", "#292725", "#858585",],
         behavior: [ 
-         "CR:radiation%2|CR:radiation%2|CR:radiation%2",
-         "CR:radiation%2|XX|CR:radiation",
-         "CR:radiation%2|CR:radiation%2|CR:radiation%2",
+         "CR:radiation%1|CR:radiation%1|CR:radiation%1",
+         "CR:radiation%1|XX|CR:radiation%1",
+         "M2|M1|M2",
     ],
         category: "powders",
         state: "solid",
