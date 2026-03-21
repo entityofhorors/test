@@ -26,8 +26,7 @@
                 if (!n) continue;
 
                 if (n.element === "water") {
-                    if (Math.random() < 0.1) {
-                        changePixel(pixel, "vanadium_slurry");
+                    if (Math.random()<0.5){changePixel(pixel, "vanadium_slurry")} else {changePixel(pixel, "rock")}
                         deletePixel(c.x, c.y);
                     }
                 }
