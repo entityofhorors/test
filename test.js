@@ -22,7 +22,6 @@ elements.vanadium_ore = {
     tempHigh: 690,
     stateHigh: "molten_vanadium_ore",
      }
-};
 // ---------------- Molten Vanadium Ore ----------------
 elements.molten_vanadium_ore = {
     color: ["#770000", "#570000", "#990000"],
@@ -34,7 +33,7 @@ elements.molten_vanadium_ore = {
     tempLow: 690,
     stateLow: "vanadium_ore",
     }
-};
+
 // ---------------- Testium ----------------
 elements.test = {
     name: "Testium",
@@ -45,4 +44,3 @@ elements.test = {
     density: 15,
     temp: 22,
     }
-};
