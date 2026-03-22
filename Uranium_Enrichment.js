@@ -477,7 +477,7 @@
                 if (!n) continue;
 
                 if (n.element === "electric") {
-                    if (Math.random() < 0.0006) {
+                    if (Math.random() < 0.0003) {
                     if (Math.random()<0.5){changePixel(pixel, "molten_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
@@ -496,7 +496,7 @@
                 if (!n) continue;
 
                 if (n.element === "enrichment_laser") {
-                    if (Math.random() < 0.0003) {
+                    if (Math.random() < 0.00015) {
                     if (Math.random()<0.5){changePixel(pixel, "molten_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
