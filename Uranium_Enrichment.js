@@ -455,8 +455,8 @@
         color: ["#456340", "#163819", "#325421",],
         behavior: [ 
          "M1 AND CR:radiation%.03|M1 AND CR:radiation%.03|M1 AND CR:radiation%.03",
-         "M2 AND CR:radiation%.03|XX|M2 AND CR:radiation%.03",
-         "M2 AND CR:radiation%.03|M2 AND CR:radiation%.03|M2 AND CR:radiation%.03",
+         "M1 AND CR:radiation%.03|XX|M1 AND CR:radiation%.03",
+         "M1 AND CR:radiation%.03|M1 AND CR:radiation%.03|M1 AND CR:radiation%.03",
     ],
         category: "gases",
         state: "gas",
