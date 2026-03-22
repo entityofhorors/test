@@ -300,7 +300,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "vanadium_pentoxide") {
+                if (n.element === "activated_vanadium_pentoxide") {
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "sulfur_trioxide");
                         deletePixel(c.x, c.y);
@@ -568,6 +568,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
                 if (!n) continue;
 
                 if (n.element === "potassium") {
+                  if (pixel.temp >= 55) {
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "potassium_oxide");
                         deletePixel(c.x, c.y);
@@ -575,8 +576,46 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
                 }
             }
         }
+    }
+      // ---------------- Potassium Oxide ----------------
+    elements.potassium_oxide = {
+        color: "#bab025",
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 2320,
+                           tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
 
-     };
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "vanadium_pentoxide") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "activated_vanadium_pentoxide");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+    };
+      // ---------------- Potassium Oxide ----------------
+    elements.activated_vanadium_pentoxide = {
+        color: ["#8a5c00", "#ab6702", "#784e00",],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 1400,
+    };
+
 if (!elements.copper.reactions){elements.copper.reactions = {}}
 elements.copper.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
  if (!elements.iron.reactions){elements.copper.reactions = {}}
