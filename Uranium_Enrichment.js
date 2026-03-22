@@ -495,7 +495,7 @@
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "laser") {
+                if (n.element === "enrichment_laser") {
                     if (Math.random() < 0.0004) {
                     if (Math.random()<0.5){changePixel(pixel, "molten_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
                         deletePixel(c.x, c.y);
@@ -531,7 +531,7 @@
     elements.enrichment_laser = {
         color: "#ff0000",
         behavior: [ 
-         "CR:radiation%.05|BO AND CR:radiation%.05|CR:radiation%.05",
+         "CR:radiation%.05|CR:radiation%.05|CR:radiation%.05",
          "CR:radiation%.05|DL%3.5|CR:radiation%.05",
          "CR:radiation%.05|M1 AND BO|CR:radiation%.05",
     ],
