@@ -527,14 +527,6 @@
         tempLow: 2880,
         stateLow: "depleted_uranium",
      };
-if (!elements.copper.reactions){elements.copper.reactions = {}}
-elements.copper.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
- if (!elements.iron.reactions){elements.copper.reactions = {}}
-elements.iron.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
-if (!elements.gold.reactions){elements.copper.reactions = {}}
-elements.gold.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
- if (!elements.silver.reactions){elements.copper.reactions = {}}
-elements.silver.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
 // ---------------- Enrichment Laser ----------------
     elements.enrichment_laser = {
         color: "#ff0000",
@@ -548,3 +540,11 @@ elements.silver.reactions.molten_salt = {charged: true, elem2: ["chlorine", "mol
         density: 19050,
         temp: 4500,
      };
+if (!elements.copper.reactions){elements.copper.reactions = {}}
+elements.copper.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
+ if (!elements.iron.reactions){elements.copper.reactions = {}}
+elements.iron.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
+if (!elements.gold.reactions){elements.copper.reactions = {}}
+elements.gold.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
+ if (!elements.silver.reactions){elements.copper.reactions = {}}
+elements.silver.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
