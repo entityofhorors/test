@@ -478,7 +478,7 @@
 
                 if (n.element === "electric") {
                     if (Math.random() < 0.0003) {
-                    if (Math.random()<0.5){changePixel(pixel, "uranium")} else {changePixel(pixel, "depleted_uranium")}
+                    if (Math.random()<0.5){changePixel(pixel, "molten_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
                     }
@@ -496,8 +496,8 @@
                 if (!n) continue;
 
                 if (n.element === "laser") {
-                    if (Math.random() < 0.0005) {
-                    if (Math.random()<0.5){changePixel(pixel, "uranium")} else {changePixel(pixel, "depleted_uranium")}
+                    if (Math.random() < 0.0004) {
+                    if (Math.random()<0.5){changePixel(pixel, "molten_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
                       }
@@ -535,3 +535,16 @@ if (!elements.gold.reactions){elements.copper.reactions = {}}
 elements.gold.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
  if (!elements.silver.reactions){elements.copper.reactions = {}}
 elements.silver.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
+// ---------------- Enrichment Laser ----------------
+    elements.enrichment_laser = {
+        color: "#ff0000",
+        behavior: [ 
+         "CR:radiation%.05|M1 AND CR:radiation%.05|CR:radiation%.05",
+         "CR:radiation%.05|XX|CR:radiation%.05",
+         "CR:radiation%.05|M1 AND CR:radiation%.05|CR:radiation%.05",
+    ],
+        category: "energy",
+        state: "gas",
+        density: 19050,
+        temp: 4500,
+     };
