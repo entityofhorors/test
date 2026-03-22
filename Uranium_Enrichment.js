@@ -192,7 +192,8 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         state: "solid",
         density: 1400,
         burn: 45,
-        burnTime: 300,
+        burnTime: 200,
+        burnInto: "fossil_feul_emissions",
         tempHigh: 2500,
         stateHigh: "fossil_feul_emissions",
         
