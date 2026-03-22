@@ -142,7 +142,7 @@
 
                 if (n.element === "oxygen") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "vanadium_oxide");
+                        changePixel(pixel, "vanadium_catalyst");
                         deletePixel(c.x, c.y);
                     }
                 }
