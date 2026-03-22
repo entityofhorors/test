@@ -531,11 +531,11 @@
     elements.enrichment_laser = {
         color: "#ff0000",
         behavior: [ 
-         "CR:radiation%.05|M1 AND CR:radiation%.05|CR:radiation%.05",
+         "CR:radiation%.05|CR:radiation%.05|CR:radiation%.05",
          "CR:radiation%.05|XX|CR:radiation%.05",
          "CR:radiation%.05|M1 AND CR:radiation%.05|CR:radiation%.05",
     ],
-        category: "powders",
+        category: "energy",
         state: "gas",
         density: 19050,
         temp: 4500,
