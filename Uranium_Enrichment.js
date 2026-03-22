@@ -192,7 +192,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         state: "solid",
         density: 1400,
         burn: 45,
-        burnTime: 200,
+        burnTime: 1000,
         burnInto: "fossil_feul_emissions",
         tempHigh: 2500,
         stateHigh: "fossil_feul_emissions",
@@ -610,13 +610,130 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         }
     };
       // ---------------- Potassium Oxide ----------------
-    elements.activated_vanadium_pentoxide = {
+    elements.potassium_oxide = {
         color: ["#8a5c00", "#ab6702", "#784e00",],
         behavior: behaviors.POWDER,
         category: "powders",
         state: "solid",
         density: 1400,
     };
+ // ---------------- Bauxite ----------------
+    elements.bauxite = {
+        color: ["#85290b", "#7a5b51", "#6b1f1f",],
+        behavior: behaviors.POWDER,
+        category: "land",
+        state: "solid",
+        density: 1950,
+        tempHigh: 1500,
+        stateHigh: "molten_bauxite",
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "water") {
+                    if (Math.random()<0.5){changePixel(pixel, "bauxite_slurry")} else {changePixel(pixel, "rock")}
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        
+     };
+ // ---------------- Bauxite Slurry ----------------
+    elements.bauxite_slurry = {
+        color: "#8a5636",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        tempLow: 0,
+        stateLow: ["dirty_ice", "bauxite"],
+        density: 1450,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "molten_sodium") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "gibbsite");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Molten Bauxite ----------------
+    elements.molten_vanadium_ore = {
+        color: ["#deae00", "#960000", "#d43f00",],
+        behavior: behaviors.MOLTEN,
+        category: "states",
+        state: "liquid",
+        density: 3500,
+        temp: 1500,
+        tempLow: 1500,
+        stateLow: "bauxite",
+    };
+ // ---------------- Gibbsite ----------------
+    elements.gibbsite = {
+        color: ["#ab4100", "#6b2901"],
+        behavior: behaviors.POWDER,
+        category: "powder",
+        state: "solid",
+        density: 2440,
+        tempHigh: 1110,
+        stateHigh: ["alumina", "aluminum_oxide"],
+    };
+ // ---------------- Bauxite Slurry ----------------
+    elements.alumina = {
+        color: "#8a5636",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        tempLow: 0,
+        stateLow: ["dirty_ice", "bauxite"],
+        density: 1450,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "molten_sodium") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "gibbsite");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+
 
 if (!elements.copper.reactions){elements.copper.reactions = {}}
 elements.copper.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
