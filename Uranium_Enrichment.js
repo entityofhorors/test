@@ -488,14 +488,7 @@
                         deletePixel(c.x, c.y);
                         
                     }
-             tick: function(pixel) {
-            let coords = [
-                {x: pixel.x+1, y: pixel.y},
-                {x: pixel.x-1, y: pixel.y},
-                {x: pixel.x, y: pixel.y+1},
-                {x: pixel.x, y: pixel.y-1},
-            ];
-
+            
             for (let c of coords) {
                 if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
 
@@ -511,7 +504,7 @@
                    }
                 }
             }
-         
+        }
      };
 // ---------------- Depleted Uranium ----------------
     elements.depleted_uranium = {
