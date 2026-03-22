@@ -546,7 +546,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         density: 19050,
         temp: 4500,
      };
- // ---------------- Potassium Oxide ----------------
+ // ---------------- Potassium Peroxide ----------------
     elements.potassium_peroxide = {
         color: "#ffee00",
         behavior: behaviors.POWDER,
@@ -576,6 +576,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
                 }
             }
         }
+    }
     }
       // ---------------- Potassium Oxide ----------------
     elements.potassium_oxide = {
