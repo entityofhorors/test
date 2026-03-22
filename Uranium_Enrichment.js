@@ -505,12 +505,12 @@
                 }
             }
         }
-     };
+    };
 // ---------------- Depleted Uranium ----------------
     elements.depleted_uranium = {
         color: ["#171f14", "#0f120e", "#133009"],
-        behavior: behaviors.SOLID,
-        category: "solids",
+        behavior: behaviors.POWDER,
+        category: "powders",
         state: "solid",
         density: 19050,
         tempHigh: 2880,
@@ -528,10 +528,10 @@
         stateLow: "depleted_uranium",
      };
 if (!elements.copper.reactions){elements.copper.reactions = {}}
-elements.copper.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
+elements.copper.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
  if (!elements.iron.reactions){elements.copper.reactions = {}}
-elements.iron.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
+elements.iron.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
 if (!elements.gold.reactions){elements.copper.reactions = {}}
-elements.gold.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
+elements.gold.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
  if (!elements.silver.reactions){elements.copper.reactions = {}}
-elements.silver.reactions.molten_salt = {charged: true, elem2: ["poison_gas", "molten_sodium"]}
+elements.silver.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
