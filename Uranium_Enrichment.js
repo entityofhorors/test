@@ -543,7 +543,7 @@ elements.silver.reactions.molten_salt = {charged: true, elem2: ["chlorine", "mol
          "CR:radiation%.05|XX|CR:radiation%.05",
          "CR:radiation%.05|M1 AND CR:radiation%.05|CR:radiation%.05",
     ],
-        category: "energy",
+        category: "powders",
         state: "gas",
         density: 19050,
         temp: 4500,
