@@ -701,15 +701,15 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         tempHigh: 1110,
         stateHigh: ["alumina", "aluminum_oxide"],
     };
- // ---------------- Bauxite Slurry ----------------
+ // ---------------- Alumina ----------------
     elements.alumina = {
-        color: "#8a5636",
+        color: "#919191",
         behavior: behaviors.LIQUID,
         category: "liquids",
         state: "liquid",
         tempLow: 0,
         stateLow: ["dirty_ice", "bauxite"],
-        density: 1450,
+        density: 3750,
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -725,6 +725,36 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
                 if (!n) continue;
 
                 if (n.element === "molten_sodium") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "gibbsite");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Aluminum Oxide ----------------
+    elements.aluminum_oxide = {
+        color: "#b0b0b0",
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 3750,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "calcium_fluoride") {
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "gibbsite");
                         deletePixel(c.x, c.y);
