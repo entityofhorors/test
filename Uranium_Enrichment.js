@@ -477,7 +477,7 @@
                 if (!n) continue;
 
                 if (n.element === "electric") {
-                    if (Math.random() < 0.0001) {
+                    if (Math.random() < 0.0003) {
                     if (Math.random()<0.5){changePixel(pixel, "uranium")} else {changePixel(pixel, "depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
@@ -488,6 +488,27 @@
                         deletePixel(c.x, c.y);
                         
                     }
+             tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "laser") {
+                    if (Math.random() < 0.0005) {
+                    if (Math.random()<0.5){changePixel(pixel, "uranium")} else {changePixel(pixel, "depleted_uranium")}
+                        deletePixel(c.x, c.y);
+                        
+                      }
+                   }
                 }
             }
          
