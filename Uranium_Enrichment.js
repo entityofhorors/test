@@ -36,7 +36,7 @@
  // ---------------- Molten Vanadium Ore ----------------
     elements.molten_vanadium_ore = {
         color: ["#deae00", "#960000", "#d43f00",],
-        behavior: behaviors.LIQUID,
+        behavior: behaviors.MOLTEN,
         category: "states",
         state: "liquid",
         density: 3500,
@@ -51,7 +51,7 @@
         category: "liquids",
         state: "liquid",
         tempLow: 0,
-        stateLow: ["ice", "vanadium_ore"],
+        stateLow: ["dirty_ice", "vanadium_ore"],
         density: 2500,
                   tick: function(pixel) {
             let coords = [
@@ -119,7 +119,7 @@
  // ---------------- Molten Vanadium ----------------
     elements.molten_vanadium = {
         color: ["#ff8000", "#ff4d00", "#ff1e00"],
-        behavior: behaviors.LIQUID,
+        behavior: behaviors.MOLTEN,
         category: "states",
         state: "liquid",
         density: 6110,
@@ -180,8 +180,8 @@
         }
 
      };
-//if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
-//elements.oxygen.reactions.suflur_gas = { "elem1":null, "elem2": null};
+if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
+elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxide"};
 //if (!elements.sodium.reactions) { elements.sodium.reactions = {} }
 //elements.sodium.reactions.calcium = {"elem1":null, "elem2": null};
  // ---------------- Coal ----------------
@@ -394,13 +394,17 @@
 // ---------------- Molten Radioactive Ore ----------------
     elements.molten_radioactive_ore = {
         color: ["#63370a", "#570600", "#ffd000"],
-        behavior: behaviors.LIQUID,
+        behavior: [ 
+         "CR:radiation%.02 AND CR:fire%.07|CR:radiation%.02 AND CR:fire%.07|CR:radiation%.02 AND CR:fire%.07",
+         "M2 AND CR:radiation%.02|XX|M2 AND CR:radiation%.02",
+         "M2 AND CR:radiation%.02|M1|M2 AND CR:radiation%.02",
+    ],
         category: "states",
         state: "liquid",
         density: 19050,
         temp: 1500,
         tempLow: 1500,
-        stateLOW: "radioactive_ore",
+        stateLow: "radioactive_ore",
      };
  // ---------------- Radioactive Slurry ----------------
     elements.radioactive_slurry = {
@@ -413,6 +417,8 @@
         category: "liquids",
         state: "liquid",
         density: 2800,
+        tempLow: 0,
+        stateLow: ["dirty_ice", "radioactive_ore"],
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -519,7 +525,7 @@
 // ---------------- Molten Depleted Uranium ----------------
     elements.molten_depleted_uranium = {
         color: ["#63370a", "#570600", "#ffd000"],
-        behavior: behaviors.LIQUID,
+        behavior: behaviors.MOLTEN,
         category: "states",
         state: "liquid",
         density: 19050,
@@ -548,3 +554,34 @@ if (!elements.gold.reactions){elements.copper.reactions = {}}
 elements.gold.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
  if (!elements.silver.reactions){elements.copper.reactions = {}}
 elements.silver.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
+ // ---------------- Potassium Oxide ----------------
+    elements.potassium_peroxide = {
+        color: "#ffee00",
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 2140,
+                      tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "potassium") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "potassium_oxide");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+
+     };
