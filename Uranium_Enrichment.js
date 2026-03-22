@@ -532,7 +532,7 @@
         color: "#ff0000",
         behavior: [ 
          "CR:radiation%.05|CR:radiation%.05|CR:radiation%.05",
-         "CR:radiation%.05|XX|CR:radiation%.05",
+         "CR:radiation%.05|DL%2|CR:radiation%.05",
          "CR:radiation%.05|M1 AND CR:radiation%.05|CR:radiation%.05",
     ],
         category: "energy",
