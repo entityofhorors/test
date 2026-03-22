@@ -533,7 +533,7 @@
         behavior: [ 
          "CR:radiation%.05|CR:radiation%.05|CR:radiation%.05",
          "CR:radiation%.05|DL%2|CR:radiation%.05",
-         "CR:radiation%.05|M1 AND CR:radiation%.05|CR:radiation%.05",
+         "CR:radiation%.05|BO THEN DL|CR:radiation%.05",
     ],
         category: "energy",
         state: "gas",
