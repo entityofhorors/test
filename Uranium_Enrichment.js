@@ -918,7 +918,6 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         
      };
 
-delete elements.silver.breakInto == "metal_scrap",
 elements.silver.breakInto = "silver_powder",
 
 if (!elements.copper.reactions){elements.copper.reactions = {}}
