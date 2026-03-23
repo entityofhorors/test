@@ -920,7 +920,6 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
 
 
 elements.elements.silver.breakInto = "silver_powder",
-delete elements.silver.breakInto == "metal_scrap",
 
 elements.silver.breakInto = "silver_powder"
 if (!elements.copper.reactions){elements.copper.reactions = {}}
@@ -931,3 +930,4 @@ if (!elements.gold.reactions){elements.copper.reactions = {}}
 elements.gold.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
  if (!elements.silver.reactions){elements.copper.reactions = {}}
 elements.silver.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
+delete elements.silver.breakInto == "metal_scrap"
