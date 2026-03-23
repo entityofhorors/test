@@ -1349,6 +1349,9 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         category: "powders",
         state: "solid",
         density: 1450,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:500, chance:0.1 }
+	},
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
