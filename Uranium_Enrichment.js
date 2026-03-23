@@ -695,7 +695,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
     elements.gibbsite = {
         color: ["#ab4100", "#6b2901"],
         behavior: behaviors.POWDER,
-        category: "powder",
+        category: "powders",
         state: "solid",
         density: 2440,
         tempHigh: 1110,
@@ -866,6 +866,18 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         state: "solid",
         density: 3100,
         
+     };
+ // ---------------- Iradiated_Water ----------------
+    elements.irradiated_water = {
+        color: ["#209e56", "#209e2f", "#0d4d27",],
+        behavior: [ 
+         "CR:radiation%.02|CR:radiation%.02|CR:radiation%.02",
+         "M2 AND CR:radiation%.02|XX|M2 AND CR:radiation%.02",
+         "M2 AND CR:radiation%.02|M1|M2 AND CR:radiation%.02",
+    ],
+        category: "liquids",
+        state: "liquid",
+        density: 1400,
      };
 
 
