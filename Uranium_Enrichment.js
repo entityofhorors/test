@@ -1348,33 +1348,23 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 	],
         category: "powders",
         state: "solid",
-        density: 1450,
+		tempHigh: 1132.2,
+        density: 19100,
 			reactions: {
 		"neutron": { elem1:"n_explosion", tempMin:500, chance:0.1 }
 	},
-                  tick: function(pixel) {
-            let coords = [
-                {x: pixel.x+1, y: pixel.y},
-                {x: pixel.x-1, y: pixel.y},
-                {x: pixel.x, y: pixel.y+1},
-                {x: pixel.x, y: pixel.y-1},
-            ];
+	};
+ // ---------------- Reactor Grade Uranium ----------------
+    elements.molten_reactor_grade_uranium = {
+        behavior: behaviors.RADMOLTEN,
+        category: "states",
+        state: "liquid",
+        density: 17300,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:200, chance:0.1 }
+	},
+	};
 
-            for (let c of coords) {
-                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
-
-                let n = pixelMap[c.x][c.y];
-                if (!n) continue;
-
-                if (n.element === "hydrogen") {
-                    if (Math.random() < 0.1) {
-                        changePixel(pixel, "hydrogen_zinc_alumina_catalyst");
-                        deletePixel(c.x, c.y);
-                    }
-                }
-            }
-        }
-     };
  // ---------------- Crushed Steel ----------------
     elements.crushed_steel = {
         color: ["#8c939c", "#6f757d", "#5c636b",],
@@ -1503,7 +1493,44 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };
+ // ---------------- Fuel Grade Uranium ----------------
+    elements.fuel_grade_uranium = {
+        color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
+        behavior: [
+	 "XX|XX|XX",
+		"XX|RL:radiation%1 AND CH:spent_uranium_fuel%0.0007|XX",
+		"M2|M1|M2"
+	],
+        category: "powders",
+        state: "solid",
+        density: 1450,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:350, chance:0.1 }
+	},
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
 
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "hydrogen") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "hydrogen_zinc_alumina_catalyst");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+elements.neutron.reactions = {"fuel_grade_uranium": { temp2:120 }},
 elements.neutron.reactions = {"reactor_grade_uranium": { temp2:100 }},
 elements.steel.breakInto = "crushed_steel"
 elements.silver.breakInto = "silver_powder"
