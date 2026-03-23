@@ -908,6 +908,15 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         tempHigh: 0,
         stateHigh: "irradiated_water",
      };
+ // ---------------- Silver Powder ----------------
+    elements.silver_powder = {
+        color: ["#dbdbdb", "#bfbfbf", "#9e9d9d",],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 3100,
+        
+     };
 
 
 elements.elements.silver.breakInto = "silver_powder",
