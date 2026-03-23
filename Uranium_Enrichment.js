@@ -918,7 +918,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         
      };
 
-elements.silver.breakInto = "silver_powder",
+elements.silver.breakInto = "silver_powder"
 
 if (!elements.copper.reactions){elements.copper.reactions = {}}
 elements.copper.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
