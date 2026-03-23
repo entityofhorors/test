@@ -1279,7 +1279,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
     };
  // ---------------- Sweet Gas ----------------
     elements.sweet_gas = {
-        color: "#9db05f",
+        color: "#aab588",
         behavior: behaviors.GAS,
         category: "gases",
         state: "gas",
