@@ -28,10 +28,10 @@
                 if (n.element === "water") {
                     if (Math.random()<0.5){changePixel(pixel, "vanadium_slurry")} else {changePixel(pixel, "rock")}
                         deletePixel(c.x, c.y);
-                    }
+                 
                 }
             }
-        
+         }
      };
  // ---------------- Molten Vanadium Ore ----------------
     elements.molten_vanadium_ore = {
@@ -738,13 +738,12 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "aluminum");
                         deletePixel(c.x, c.y);
-
+                    }
+                }
                 if (n.element === "zinc") {
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "zinc_alumina_catalyst");
                         deletePixel(c.x, c.y);
-                            }
-                        } 
                     }
                 }
             }
