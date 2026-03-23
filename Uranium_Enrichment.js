@@ -707,8 +707,6 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         behavior: behaviors.LIQUID,
         category: "liquids",
         state: "liquid",
-        tempLow: 0,
-        stateLow: ["dirty_ice", "bauxite"],
         density: 3750,
                   tick: function(pixel) {
             let coords = [
@@ -724,9 +722,9 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "molten_sodium") {
+                if (n.element === "calcium_fluoride") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "gibbsite");
+                        changePixel(pixel, "aluminum");
                         deletePixel(c.x, c.y);
                     }
                 }
@@ -754,14 +752,111 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "calcium_fluoride") {
+                if (n.element === "alcohol") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "gibbsite");
+                        changePixel(pixel, "ethylene");
                         deletePixel(c.x, c.y);
                     }
                 }
             }
         }
+     };
+ // ---------------- Ethylene ----------------
+    elements.ethylene = {
+        color: "#ababab",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 568,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "oxygenated_vynal_bimetalic_silver_catalyst") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "ethyline_oxide");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Fluorite ----------------
+    elements.fluorite = {
+        color: ["#008a0b", "#113314", "#545454",],
+        behavior: behaviors.POWDER,
+        category: "land",
+        state: "solid",
+        density: 3100,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "sulfuric_acid") {
+                    if (Math.random()<0.5){changePixel(pixel, "hydrogen_fluorite")} else {changePixel(pixel, "hydrofluric_acid")}
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        
+     };
+ // ---------------- Hydroden Flourite ----------------
+    elements.hydrogen_fluorite = {
+        color: "#919191",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 967,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "calcium") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "calcium_fluoride");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Hydrofluric Acid ----------------
+    elements.hydrofluric_acid = {
+        color: "#919191",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 1200,
      };
 
 
