@@ -1241,6 +1241,54 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         state: "liquid",
         density: 703,
     };
+ // ---------------- Methyldiethanolamine ----------------
+    elements.methyldiethanolamine = {
+        color: "#c7c7c7",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 1038,
+                      tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "sour_gas") {
+                    if (Math.random()<0.33){changePixel(pixel, "hydrogen_sulfide")} else {changePixel(pixel, "sweet_gas")}
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Sour Gas ----------------
+    elements.sour_gas = {
+        color: "#9db05f",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: .8,
+    };
+ // ---------------- Sweet Gas ----------------
+    elements.sweet_gas = {
+        color: "#9db05f",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: .9,
+        burn: 95,
+        burnTime: 800,
+        burnInto: ["carbon_dioxide", "steam"],
+    };
 
 
 elements.silver.breakInto = "silver_powder"
