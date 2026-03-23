@@ -1471,8 +1471,8 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };
- // ---------------- Inert Nuke ----------------
-    elements.inert_nuke = {
+ // ---------------- Inactive Nuke ----------------
+    elements.inactive_nuke = {
         color: "#534636",
         behavior: behaviors.POWDER,
         category: "powders",
