@@ -1437,7 +1437,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 if (!n) continue;
 
                 if (n.element === "enrichment_laser") {
-                    if (Math.random() < 0.00015) {
+                    if (Math.random() < 0.0001) {
                     if (Math.random()<0.35){changePixel(pixel, "molten_fuel_grade_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
@@ -1649,7 +1649,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
         behavior: [
 	    "M2|M1|M2",
-		"M1|RL:radiation%2 AND CH:spent_uranium_fuel%0.0007|M1",
+		"M1|RL:radiation%27|M1",
 		"M2|M1|M2"
 	],
         category: "gases",
@@ -1701,7 +1701,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
         behavior: [
 	 "XX|XX|XX",
-		"XX|RL:radiation%3 AND CH:spent_uranium_fuel%0.0007|XX",
+		"XX|RL:radiation%3 AND CH:spent_nuclear_fuel%0.0007|XX",
 		"M2|M1|M2"
 	],
         category: "powders",
@@ -1771,7 +1771,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
         behavior: [
 	    "M2|M1|M2",
-		"M1|RL:radiation%4 AND CH:spent_uranium_fuel%0.0007|M1",
+		"M1|RL:radiation%3.4|M1",
 		"M2|M1|M2"
 	],
         category: "gases",
@@ -1781,6 +1781,92 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 			reactions: {
 		"neutron": { elem1:"n_explosion", tempMin:100, chance:0.1 }
 	    },
+     };
+	 // ---------------- Spent Nuclear Fuel ----------------
+    elements.spent_nuclear_fuel = {
+        color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
+        behavior: [
+	 "XX|XX|XX",
+		"XX|RL:radiation%3|XX",
+		"M2|M1|M2"
+	],
+        category: "powders",
+        state: "solid",
+		tempHigh: 1132.2,
+        density: 19100,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:150, chance:0.1 }
+	},
+	                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "high_power_enrichment_laser") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "weapons_grade_uranium_vapor");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };	
+ // ---------------- Nitric Oxide ----------------
+    elements.nitric_oxide = {
+        color: "#ffffff",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 1.34,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "oxygen") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "nitric_dioxide");
+                        deletePixel(c.x, c.y);
+						                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "hydrogen") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "hydrogen_nitric_oxide");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Aqueous Ammonia ----------------
+    elements.aqueous_ammonia = {
+        color: "#b3c48f",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 900,
+
      };
 elements.neutron.reactions = {
 	    "weapons_grade_uranium": { temp2:100 },
@@ -1796,6 +1882,42 @@ elements.neutron.reactions = {
 		"cloud": { elem1:null, elem2:"rad_cloud" },
 		"rain_cloud": { elem1:null, elem2:"rad_cloud" }
 	},
+elements.ammonia.reactions = {
+		"methane": { elem1:["hydrogen","water"], elem2:"cyanide_gas", chance:0.25 },
+		"vinegar": { elem1:"salt_water", elem2:"salt_water", chance:0.05 },
+		"plant": { elem1:"plant", chance:0.05 },
+		"evergreen": { elem1:"evergreen", chance:0.05 },
+		"cactus": { elem1:"cactus", chance:0.05 },
+		"wheat": { elem1:"wheat", chance:0.05 },
+		"wheat_seed": { elem1:"wheat", chance:0.05 },
+		"grass": { elem1:"grass", chance:0.05 },
+		"grass_seed": { elem1:"grass", chance:0.05 },
+		"bamboo_plant": { elem1:"bamboo", chance:0.05 },
+		"flower_seed": { elem1:"flower_seed", chance:0.05 },
+		"petal": { elem1:"flower_seed", chance:0.05 },
+		"vine": { elem1:"vine", chance:0.05 },
+		"sapling": { elem1:"tree_branch", chance:0.05 },
+		"tree_branch": { elem1:"tree_branch", chance:0.05 },
+		"corn_seed": { elem1:"corn", chance:0.05 },
+		"root": { elem1:"root", chance:0.05 },
+		"dirt": { elem1:"grass", chance:0.05 },
+		"mud": { elem1:"grass", chance:0.05 },
+		"water": { elem1:null, elem2: "aqueous_ammonia" },
+		"kelp": { elem1:["kelp","algae"], chance:0.005 },
+		"coral": { elem1:"coral", chance:0.005 },
+		"potato_seed": { elem1:"potato", chance:0.05 },
+		"pumpkin_seed": { elem1:"pumpkin", chance:0.05 },
+		"herb": { elem1:"herb", chance:0.05 },
+		"lettuce": { elem1:"lettuce", chance:0.05 },
+		"yeast": { elem1:"yeast", chance:0.05 },
+		"fish": { elem2:"meat", chance:0.05 },
+		"bird": { elem2:"meat", chance:0.05 },
+		"frog": { elem2:"meat", chance:0.05 },
+		"rat": { elem2:"rotten_meat", chance:0.05 },
+}
+elements.ammonia.burnInto = "nitric_oxide"
+elements.ammonia.burnTime = 75
+elements.ammonia.burn = 25,
 elements.steel.breakInto = "crushed_steel"
 elements.silver.breakInto = "silver_powder"
 delete elements.uranium
