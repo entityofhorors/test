@@ -867,7 +867,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         density: 3100,
         
      };
- // ---------------- Iradiated_Water ----------------
+ // ---------------- Iradiated Water ----------------
     elements.irradiated_water = {
         color: ["#209e56", "#209e2f", "#0d7a20",],
         behavior: [ 
@@ -883,8 +883,8 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         tempLow: 0,
         stateLow: "irradiated_ice",
      };
- // ---------------- Iradiated_Water ----------------
-    elements.irradiated_water = {
+ // ---------------- Iradiated Ice ----------------
+    elements.irradiated_ice = {
         color: ["#72a387", "#55ab60", "#3f7549",],
         behavior: [ 
          "CR:radiation%.02|CR:radiation%.02|CR:radiation%.02",
