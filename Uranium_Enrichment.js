@@ -1494,7 +1494,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "electic") {
+                if (n.element === "electric") {
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "nuke");
                         deletePixel(c.x, c.y);
