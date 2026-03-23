@@ -184,8 +184,10 @@
      };
 if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
 elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxide"};
-//if (!elements.sodium.reactions) { elements.sodium.reactions = {} }
-//elements.sodium.reactions.calcium = {"elem1":null, "elem2": null};
+if (!elements.hydrodgen.reactions) { elements.hydrodgen.reactions = {} }
+elements.hydrodgen.reactions.chlorine = {"elem1":null, "elem2": "hydrodgen_cloride"};
+if (!elements.mercury.reactions) { elements.mercury.reactions = {} }
+elements.mercury.reactions.chlorine = {"elem1":null, "elem2": "mercuric_cloride"};
  // ---------------- Coal ----------------
     elements.coal = {
         color: ["#303030", "#212121", "#121212"],
@@ -914,8 +916,166 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         behavior: behaviors.POWDER,
         category: "powders",
         state: "solid",
-        density: 3100,
-        
+        density: 10497,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "gold_coin") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "bimetalic_silver_catalyst");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Bimetalic Silver Catalyst ----------------
+    elements.bimetalic_silver_catalyst = {
+        color: ["#dbdbdb", "#c7a200", "#9e9d9d","#9e9d9d", "#8c7200"],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 15497,
+
+     };
+ // ---------------- Hydrogen Chloride ----------------
+    elements.hydrogen_chloride = {
+        color: "#8b9476",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 1.6,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "mercuric_chloride") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "vinyl_chloride");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Mercuric Chloride ----------------
+    elements.mercuric_chloride = {
+        color: "#737867",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 5540,
+     };
+ // ---------------- Vinyl Chloride ----------------
+    elements.vinyl_chloride = {
+        color: "#778556",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 1.6,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "bimetalic_silver_catalyst") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "vinyl_chloride_bimetalic_silver_catalyst");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Vinyl Chloride Bimetalic Silver Catalyst ----------------
+    elements.vinyl_chloride_bimetalic_silver_catalyst = {
+        color: ["#dbdbdb", "#c7a200", "#9e9d9d","#9e9d9d", "#8c7200", "#778556"],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 10497,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "oxygen") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "oxygenated_vinyl_chloride_bimetalic_silver_catalyst");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Oxygenated Vinyl Chloride Bimetalic Silver Catalyst ----------------
+    elements.oxygenated_vinyl_chloride_bimetalic_silver_catalyst = {
+        color: ["#dbdbdb", "#c7a200", "#9e9d9d","#9e9d9d", "#8c7200", "#778556", "#527485"],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 10497,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "ethylene") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "ethylene_oxide");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
      };
 
 elements.silver.breakInto = "silver_powder"
