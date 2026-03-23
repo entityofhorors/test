@@ -1859,6 +1859,46 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };
+ // ---------------- Hydrogen Nitric Oxide ----------------
+    elements.hydrogen_nitric_oxide = {
+        color: "#8ab4cf",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 1.34,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "sulfuric_acid_platinum_catalyst") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "hydroxylammonium_sulfate");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Platinum ----------------
+    elements.platinum = {
+        color: ["#c5ccd1","#cad7e0","#aaafb3"],
+        behavior: behaviors.SOLID,
+        category: "solids",
+        state: "solid",
+        density: 21460,
+		tempHigh: 1786,
+		breakInto: "platinum_catalyst"
+		 };
  // ---------------- Aqueous Ammonia ----------------
     elements.aqueous_ammonia = {
         color: "#b3c48f",
