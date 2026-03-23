@@ -693,7 +693,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         }
      };
  // ---------------- Molten Bauxite ----------------
-    elements.molten_bauxite_ore = {
+    elements.molten_bauxite = {
         color: ["#deae00", "#960000", "#d43f00",],
         behavior: behaviors.MOLTEN,
         category: "states",
