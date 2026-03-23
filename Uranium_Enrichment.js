@@ -1079,7 +1079,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
      };
  // ---------------- Hydrogen Chloride Precursor ----------------
     elements.hydrogen_chloride_precursor = {
-        color: "#8b9476",
+        color: "#527485",
         behavior: behaviors.GAS,
         category: "gases",
         state: "gas",
