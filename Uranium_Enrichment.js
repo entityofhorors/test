@@ -1907,7 +1907,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         state: "solid",
         density: 21460,
 		tempHigh: 1786,
-		stateHigh: "molten_platinum"
+		stateHigh: "molten_platinum",
 		                  tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
