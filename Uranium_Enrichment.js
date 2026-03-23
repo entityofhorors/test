@@ -1294,6 +1294,50 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         burnTime: 800,
         burnInto: ["carbon_dioxide", "steam"],
     };
+ // ---------------- Hydrogen Sulfide ----------------
+    elements.hydrogen_sulfide = {
+        color: ["#fbffd9", "#d9deb6", "#c4c789"],
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 1453,
+        burn: 95,
+        burnTime: 300,
+        burnInto: ["sulfur_dioxide", "steam"],
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "natrual_gas") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "sour_gas");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Natrual Gas ----------------
+    elements.natrual_gas = {
+        color: "#d0d9c1",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: .9,
+        burn: 95,
+        burnTime: 500,
+        burnInto: ["carbon_dioxide", "methane"],
+    };
 
 
 elements.silver.breakInto = "silver_powder"
