@@ -185,7 +185,7 @@
 if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
 elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxide"};
 if (!elements.mercury.reactions) { elements.mercury.reactions = {} }
-elements.mercury.reactions.potassium = { "elem1":null, "elem2":"mercuric_chloride"};
+elements.mercury.reactions.chlorine = { "elem1":null, "elem2":"mercuric_chloride"};
 
     elements.coal = {
         color: ["#303030", "#212121", "#121212"],
