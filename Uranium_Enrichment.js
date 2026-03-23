@@ -1345,7 +1345,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 	 "XX|XX|XX",
 		"XX|RL:radiation%1 AND CH:lead%0.001|XX",
 		"M2|M1|M2"
-	],,
+	],
         category: "powders",
         state: "solid",
         density: 1450,
