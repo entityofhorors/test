@@ -495,7 +495,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 
                 if (n.element === "electric") {
                     if (Math.random() < 0.0003) {
-                    if (Math.random()<0.5){changePixel(pixel, "molten_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
+                    if (Math.random()<0.5){changePixel(pixel, "molten_reactor_grade_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
                     }
@@ -514,7 +514,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 
                 if (n.element === "enrichment_laser") {
                     if (Math.random() < 0.00015) {
-                    if (Math.random()<0.5){changePixel(pixel, "molten_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
+                    if (Math.random()<0.5){changePixel(pixel, "molten_reactor_grade_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
                       }
@@ -889,9 +889,9 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
     elements.irradiated_water = {
         color: ["#209e56", "#209e2f", "#0d7a20",],
         behavior: [ 
-         "CR:radiation%.02|CR:radiation%.02|CR:radiation%.02",
-         "M2 AND CR:radiation%.02|XX|M2 AND CR:radiation%.02",
-         "M2 AND CR:radiation%.02|M1|M2 AND CR:radiation%.02",
+         "CR:radiation%.02 AND CH:water>irradiated_water%0.5|CR:radiation%.02 AND CH:water>irradiated_water%0.5|CR:radiation%.02 AND CH:water>irradiated_water%0.5",
+         "M2 AND CR:radiation%.02 AND CH:water>irradiated_water%0.5|XX|M2 AND CR:radiation%.02 AND CH:water>irradiated_water%0.5",
+         "M2 AND CR:radiation%.02 AND CH:water>irradiated_water%0.5|M1 AND CH:water>irradiated_water%0.5|M2 AND CR:radiation%.02 AND CH:water>irradiated_water%0.5",
     ],
         category: "liquids",
         state: "liquid",
@@ -905,9 +905,9 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
     elements.irradiated_ice = {
         color: ["#72a387", "#55ab60", "#3f7549",],
         behavior: [ 
-         "CR:radiation%.02|CR:radiation%.02|CR:radiation%.02",
-         "CR:radiation%.02|XX|CR:radiation%.02",
-         "CR:radiation%.02|XX|CR:radiation%.02",
+         "CR:radiation%.02 AND CH:water>irradiated_water%0.5|CR:radiation%0.12 AND CH:water>irradiated_water%0.5|CR:radiation%.02 AND CH:water>irradiated_water%0.5",
+         "CR:radiation%.02 AND CH:water>irradiated_water%0.5|XX|CR:radiation%.02",
+         "CR:radiation%.02 AND CH:water>irradiated_water%0.5||CR:radiation%0.12 AND CH:water>irradiated_water%0.5|CR:radiation%.02 AND CH:water>irradiated_water%0.5",
     ],
         category: "solids",
         state: "solid",
@@ -1341,6 +1341,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 
 
 elements.silver.breakInto = "silver_powder"
+delete elements.uranium
 
 if (!elements.copper.reactions){elements.copper.reactions = {}}
 elements.copper.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
