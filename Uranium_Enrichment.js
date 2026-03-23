@@ -419,7 +419,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         state: "liquid",
         density: 2800,
         tempLow: 0,
-        stateLow: ["dirty_ice", "radioactive_ore"],
+        stateLow: ["irradiated_ice", "radioactive_ore"],
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -447,9 +447,9 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
     elements.yellowcake = {
         color: "#bfb300",
         behavior: [ 
-         "CR:radiation%.03|CR:radiation%.03|CR:radiation%.03",
-         "CR:radiation%.03|XX|CR:radiation%.03",
-         "M2|M1|M2",
+         "CR:radiation%.03 AND CH:water>irradiated_water|CR:radiation%.03 AND CH:water>irradiated_water|CR:radiation%.03 AND CH:water>irradiated_water",
+         "CR:radiation%.03 AND CH:water>irradiated_water|XX|CR:radiation%.03 AND CH:water>irradiated_water",
+         "M2 AND CH:water>irradiated_water|M1 AND CH:water>irradiated_water|M2 AND CH:water>irradiated_water",
     ],
         category: "powders",
         state: "solid",
@@ -891,9 +891,10 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
          "CR:radiation%.02|XX|CR:radiation%.02",
          "CR:radiation%.02|XX|CR:radiation%.02",
     ],
-        category: "liquids",
-        state: "liquid",
+        category: "solids",
+        state: "solid",
         density: 1400,
+        temp: 0,
         tempHigh: 0,
         stateHigh: "irradiated_water",
      };
