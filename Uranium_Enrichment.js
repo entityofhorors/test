@@ -1240,6 +1240,9 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         category: "liquids",
         state: "liquid",
         density: 703,
+        burn: 95,
+        burnTime: 100,
+        burnInto: ["carbon_dioxide", "steam","nitrogen"],
     };
  // ---------------- Methyldiethanolamine ----------------
     elements.methyldiethanolamine = {
@@ -1276,6 +1279,9 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         category: "gases",
         state: "gas",
         density: .8,
+        burn: 95,
+        burnTime: 100,
+        burnInto: ["carbon_dioxide", "steam"],
     };
  // ---------------- Sweet Gas ----------------
     elements.sweet_gas = {
