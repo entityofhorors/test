@@ -184,6 +184,8 @@
      };
 if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
 elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxide"};
+if (!elements.mercury.reactions) { elements.mercury.reactions = {} }
+elements.mercury.reactions.potassium = { "elem1":null, "elem2":"mercuric_chloride"};
 elements.hydrodgen = { tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
