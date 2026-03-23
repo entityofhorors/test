@@ -1,0 +1,189 @@
+Enrichment Process: {
+
+(B) = in base game
+(G) = Gas
+(P) = Powder
+(L) = Liquid
+(S) = Solid
+(E) = Energy
+(PRO) = Process (All processes are base)
+
+Sulfuric Acid Production: {
+
+Water (B)(L) + Superheating (PRO) = Oxygen + Hydrogen
+
+Vanadium Processing: [
+
+Salt_Water (B)(L) + Vaporizing (PRO) = Salt (B)(P) And Water (B)(L)
+
+Vanadium_Ore (P) + Water (B)(L) = Vanadium_Slurry (L) And Rocks (B)(P)
+
+Salt (B)(P) + Electrolysis (PRO) = Sodium (B)(P) And Chlorine (B)(G)
+
+Vanadium_Slurry (L) + Sodium (B)(P) = Sodium_Vanadate (P)
+
+Sodium_Vanadate (P) + Water (B)(L) = Redcake (P)
+
+Redcake (P) + Heating (PRO) = Vanadium_Pentoxide (P)
+
+Vanadium_Pentoxide (P) + Metal_Scrap (B)(P) = Vanadium (S)
+
+Vanadium (S) + Melting (B) = Molten_Vandium (L)
+
+Molten_Vandium (L) + Oxygen (B)(G) = Vanadium_Catalyst (P)
+
+Vanadium_Catalyst (P) + Water (B)(L) = Vanadium_Catalyst_Water (L) ]
+
+Potassium Oxidation: [
+
+Potassium (B)(P) + Oxygen (B)(G) = Potassium_Peroxide (P) 
+
+Potassium_Peroxide (P) + Potassium (B)(P) + Heat 55C (PRO) = Possium_Oxide (P) 
+
+Vanadium_Pentoxide (P) + Possium_Oxide (P) = Activated_Vanadium_Pentoxide (P) ]
+
+Sulfur Trioxide Production: [
+
+Coal (P) + Burning (B) = Fossil_Feul_Emissions (G) UA
+
+Coal (P) + Vaporisation (B) = Fossil_Feul_Emissions (G)
+
+Fossil_Feul_Emissions (G) + Limestone (B)(P) = Calcium_Sulfate (P) And Methane (B)(G)
+
+Calcium_Sulfate (P) + Melting (B) = Molten_Calcium (B)(L) And Sulfur_Dioxide (G) And Carbon_Dioxide (B)(G)
+
+Sulfur_Dioxide (G) + Activated_Vanadium_Pentoxide (P) = Sulfur_Trioxide (G) ]
+
+Alt Sulfur Trioxide Production: [
+
+Aluminum Production: [
+
+Bauxite (P) + Water (B)(L) = Bauxite_Slurry (L) 
+
+Bauxite_Slurry (L) + Molten_Sodium (B)(L) = Gibbsite (P) 
+
+Gibbsite (P) + Heat 1100C (PRO) = Alumina (L) And Aluminum_Oxide (P) 
+
+Yeast (B)(P) + Sugar_Water (B)(P) = Alcohol (B)(P)  
+
+Aluminum_Oxide (P) + Alcohol (B)(L) = Ethylene (G)
+
+Fluorite (P) + Sulfuric_Acid (L) = Hydrogen_Fluoride (G) And Hydrofluoric_Acid (L)
+
+Hydrogen_Fluoride (G) + Calcium (B)(P) = Calcium_Fluoride (P)
+
+Alumina (L) + Calcium_Fluoride (P) = Aluminum]
+
+Natrual_Gas (G) + Burning (PRO) = Methane (B)(G)
+
+Hydrogen (B)(G) + Methane (B)(G) = Hydrogen_Clhoride_Precursor (G) 
+
+Hydrogen_Clhoride_Precursor (G) + Chlorine (B)(G) = Hydrogen_Clhoride (G)
+
+Mercury (B)(L) + Chlorine (B)(G) = Mercuric_Chloride (G) 
+
+Hydrogen_Clhoride (G) + Mercuric_Chloride (G) = Vinyl_Chloride (G)  
+
+Silver (B)(S) + Smashing (PRO) = Silver_Powder (P) 
+
+Gold (B)(S) + Smashing (PRO) = Gold_Coin (B)(P) 
+
+Gold_Coin (B)(P) + Silver_Powder (P) = Bimetalic_Silver_catalyst (P) 
+
+Bimetalic_Silver_catalyst (P) + Vinyl_Chloride (G) = Vinyl_Chloride_Bimetalic_Silver_catalyst (P) 
+
+Oxygen (B)(G) + Vinyl_Chloride_Bimetalic_Silver_catalyst (P) = Oxygenated_Vinyl_Chloride_Bimetalic_Silver_catalyst (P) 
+
+Oxygenated_Vinyl_Chloride_Bimetalic_Silver_catalyst (P) + Ethylene (G) = Ethylene_Oxide (G) 
+
+Zinc (B)(S) + Alumina (L) = Zinc-alumina_catalyst (P) 
+
+Zinc-alumina_catalyst (P) + hydrogen (B)(G) = Hydrogen_Zinc-alumina_Catalyst (P) 
+
+Co2 (B)(G) + Hydrogen_Zinc-alumina_Catalyst (P) = Methanol (L) 
+
+Ammonia (B)(G) + Methanol (L) = Methylamine (L) 
+
+Methylamine (L) + Ethylene_Oxide (G) = Methyldiethanolamine (L) 
+
+Hydroden_Sulfuide (P) + Nautrual_Gas (G) = Sour_Gas (G) 
+
+Sour_Gas (G) + Methyldiethanolamine (L) = Hydroden_Sulfuide (G) And Sweet_Gas (G)  
+
+Hydroden_Sulfuide (G) + Burning (PRO) = Sulfur_Dioxide (G) And Steam (B)(G) 
+
+Sulfur_Dioxide (G) + Activated_Vanadium_Pentoxide (P) = Sulfur_Trioxide (G) ]
+
+Sulfer_Trioxide (G) + Vanadium_Catalyst_Water (L) = Sulfuric_Acid (L)}
+
+Radioactive Ore Processing: [
+
+Radioactive_Ore (P) + Water (B)(L) = Radioactive_slurry (L) And Rocks (B)(P)
+
+Radioactive_Slurry (L) + Sulfuric_acid (L) = Yellowcake (P) 
+
+Yellowcake (P) + Vaporization (PRO) = Unenriched_uranium (G) ]
+
+Enrichment: [
+
+Unenriched_uranium (G) + Electric (B)(E) = Molten_Reactor_Grade_Uranium (L) And Molten_Depleted_Uranium (L)
+
+Unenriched_uranium (G) + Enrichment_Laser (E) = Molten_Reactor_Grade_Uranium (L) And Molten_Depleted_Uranium (L)
+
+Reactor_Grade_Uranium (P) + Enrichment_Laser (E) = Reactor_Grade_Uranium_Vapor (G)
+
+Reactor_Grade_Uranium_Vapor (G) + Enrichment_Laser (E) = Molten_Fuel_Grade_Uranium (L) and Molten_Depleted_Uranium (L)
+
+Reactor_Grade_Uranium_Vapor (G) + Electric (B)(E) = Molten_Fuel_Grade_Uranium (L) and Molten_Depleted_Uranium (L)
+
+Fuel_Grade_Uranium (P) + High_Power_Enrichment_Laser (E) = Fuel_Grade_Uranium_Vapor (G)
+
+Fuel_Grade_Uranium_Vapor (G) + High_Power_Enrichment_Laser (E) = Molten_Weapons_Grade_Uranium (L) and Molten_Depleted_Uranium (L)
+
+Fuel_Grade_Uranium_Vapor (G) + Electric (B)(E) = Molten_Weapons_Grade_Uranium (L) and Molten_Depleted_Uranium (L) ]}
+
+Weapons Manufacturing: [
+
+Steel (B)(S) + Smashing (PRO) = Crushed_Steel (P)
+
+Crushed_Steel (P) + Aluminum (B)(S) = Bomb_Shells (P) 
+
+Lead (B)(S) + Bomb_Shells (P) = Shielded_Bomb_Shells (P) 
+
+Shielded_Bomb_Shells (P) + Weapons_Grade_Uranium (P) = Inert_Nuke (P) 
+
+Inert_Nuke (P) + Shock (PRO) = Nuke (W) ]
+
+Nuclear Waste Processing: [
+
+Ammonia (B)(G) + Burning (PRO) = Nitric_Oxide (G) 
+
+Nitric_Oxide (G) + Oxygen (B)(G) = Nitic_Dioxide (G) 
+
+Nitic_Dioxide (G) + Water (B)(L) = Nitric_Acid (L) And Nitic_Oxide (G) UA
+
+Nitric_Acid (L) + Sulfuric_Acid (L) = Concentrated_Nitric_Acid (L) UA
+
+Nitric_Oxide (G) + Hydrogen (B)(G) = Hydrogen_Nitic_Oxide (G) 
+
+Platinum (B)(S) + Smashing (PRO) = Platinum_Catalyst (P) 
+
+Platinum_Catalyst (P) + Sulfuric_Acid (L) = Sulfuric_Acid_Platinum_Catalyst (P) 
+
+Hydrogen_Nitic_Oxide (G) + Sulfuric_Acid_Platinum_Catalyst (P) = Hydroxylammonium_Sulfate (P) UA
+
+Ammonia (B)(G) + Water (B)(L) = Aqueous_Ammonia (L) UA
+
+Hydroxylammonium_Sulfate (P) + Aqueous_Ammonia (L) = Hydroxylamine (P) UA
+
+Spent_Nuclear_Fuel (P) + Concentrated_Nitric_Acid (L) = Heavy_Actinide_Saturated_Kerosene (L) And Aqueous_Fission_Products (L) UA
+
+Aqueous_Fission_Products (L) + Hydroxylamine (P) = Reactor_Grade_Uranium (P) And Aqueous_Reactor_Grade_Plutonium (L) UA
+
+Heavy_Actinide_Saturated_Kerosene (L) + Heat (PRO) = High_Level_Nuclear_Waste (L) UA
+
+High_Level_Nuclear_Waste (L) + Cooling (PRO) = High_Level_Nuclear_Waste_Ceramic (P) UA
+
+Msc. Reactions: [
+
+Unenriched_uranium (G) + Co2 (B)(G) = Methane (B)(G) ]
