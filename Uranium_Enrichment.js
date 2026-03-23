@@ -184,10 +184,10 @@
      };
 if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
 elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxide"};
-if (!elements.hydrodgen.reactions) { elements.hydrodgen.reactions = {} }
-elements.hydrodgen.reactions.chlorine = {"elem1":null, "elem2": "hydrodgen_cloride"};
-if (!elements.mercury.reactions) { elements.mercury.reactions = {} }
-elements.mercury.reactions.chlorine = {"elem1":null, "elem2": "mercuric_cloride"};
+//if (!elements.hydrodgen.reactions) { elements.hydrodgen.reactions = {} }
+//elements.hydrodgen.reactions.chlorine = {"elem1":null, "elem2": "hydrodgen_cloride"};
+//if (!elements.mercury.reactions) { elements.mercury.reactions = {} }
+//elements.mercury.reactions.chlorine = {"elem1":null, "elem2": "mercuric_cloride"};
  // ---------------- Coal ----------------
     elements.coal = {
         color: ["#303030", "#212121", "#121212"],
