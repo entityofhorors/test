@@ -52,7 +52,7 @@
         state: "liquid",
         tempLow: 0,
         stateLow: ["dirty_ice", "vanadium_ore"],
-        tempHigh: 100,
+        tempHigh: 150,
         stateHigh: ["carbon_dioxide", "steam", "vanadium_ore"],
         density: 2500,
                   tick: function(pixel) {
@@ -428,7 +428,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         density: 2800,
         tempLow: 0,
         stateLow: ["irradiated_ice", "radioactive_ore"],
-        tempHigh: 100,
+        tempHigh: 150,
         stateHigh: ["rad_steam", "radioactive_ore"],
                   tick: function(pixel) {
             let coords = [
@@ -666,7 +666,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         state: "liquid",
         tempLow: 0,
         stateLow: ["dirty_ice", "bauxite"],
-        tempHigh: 100,
+        tempHigh: 150,
         stateHigh: ["carbon_dioxide", "steam", "vanadium_ore"],
         density: 1450,
                   tick: function(pixel) {
