@@ -1438,12 +1438,12 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
      };
  // ---------------- Shielded Bomb Shells ----------------
     elements.shielded_bomb_shells = {
-        color: ["#8c939c", "#919191", "#737373",],
+        color: ["#6f7782", "#636363", "#474747",],
         behavior: behaviors.POWDER,
         category: "powders",
         state: "solid",
         density: 10497,
-	    tempHigh: 800,
+	    tempHigh: 500,
 		stateHigh: ["molten_steel", "molten_aluminum", "molten_lead"],
                   tick: function(pixel) {
             let coords = [
@@ -1468,7 +1468,39 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };
+ // ---------------- Shielded Bomb Shells ----------------
+    elements.inert_nuke = {
+        color: "#534636",
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 10497,
+	    tempHigh: 1000,
+		stateHigh: ["molten_steel", "molten_aluminum", "molten_lead","molten_reactor_grade_uranium"],
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
 
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "electic") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "nuke");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+elements.neutron.reactions = {"reactor_grade_uranium": { temp2:100 }},
 elements.steel.breakInto = "crushed_steel"
 elements.silver.breakInto = "silver_powder"
 delete elements.uranium
