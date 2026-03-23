@@ -877,7 +877,25 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
     ],
         category: "liquids",
         state: "liquid",
+        density: 1400,\
+        tempHigh: 100,
+        stateHigh: "rad_steam",
+        tempLow: 0,
+        stateLow: "irradiated_ice",
+     };
+ // ---------------- Iradiated_Water ----------------
+    elements.irradiated_water = {
+        color: ["#72a387", "#55ab60", "#3f7549",],
+        behavior: [ 
+         "CR:radiation%.02|CR:radiation%.02|CR:radiation%.02",
+         "CR:radiation%.02|XX|CR:radiation%.02",
+         "CR:radiation%.02|XX|CR:radiation%.02",
+    ],
+        category: "liquids",
+        state: "liquid",
         density: 1400,
+        tempHigh: 0,
+        stateHigh: "irradiated_water",
      };
 
 
