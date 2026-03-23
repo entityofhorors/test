@@ -738,6 +738,13 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "aluminum");
                         deletePixel(c.x, c.y);
+
+                if (n.element === "zinc") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "zinc_alumina_catalyst");
+                        deletePixel(c.x, c.y);
+                            }
+                        } 
                     }
                 }
             }
@@ -1107,6 +1114,135 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };
+ // ---------------- Ethtlene Oxide ----------------
+    elements.ethylene_oxide = {
+        color: ["#c9c9c9", "ababab", "#808080"],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 890,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "methlaymine") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "methyldiethanolamine");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Zinc-Alumina Catalyst ----------------
+    elements.zinc_alumina_catalyst = {
+        color: ["#757575", "#666666", "#595959",],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 1450,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "hydrogen") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "hydrogen_zinc_alumina_catalyst");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Hydrogen Zinc-Alumina Catalyst ----------------
+    elements.hydrogen_zinc_alumina_catalyst = {
+        color: ["#666e73", "#505a5e", "#454d4f", "#414d59"],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 1100,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "carbon_dioxide") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "methanol");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Methanol ----------------
+    elements.methanol = {
+        color: "#b6b8a7",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 792,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "ammonia") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "methlaymine");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Methlaymine ----------------
+    elements.methlaymine = {
+        color: "#9ea187",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 703,
+    };
+
 
 elements.silver.breakInto = "silver_powder"
 
