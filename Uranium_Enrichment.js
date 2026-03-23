@@ -877,7 +877,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
     ],
         category: "liquids",
         state: "liquid",
-        density: 1400,\
+        density: 1400,
         tempHigh: 100,
         stateHigh: "rad_steam",
         tempLow: 0,
