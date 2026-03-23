@@ -52,6 +52,8 @@
         state: "liquid",
         tempLow: 0,
         stateLow: ["dirty_ice", "vanadium_ore"],
+        tempHigh: 100,
+        stateHigh: ["carbon_dioxide", "steam", "vanadium_ore"]
         density: 2500,
                   tick: function(pixel) {
             let coords = [
@@ -355,6 +357,10 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         category: "liquids",
         state: "liquid",
         density: 2360,
+        tempHigh: 100,
+        stateHigh: ["steam", "vanadium_catalyst"],
+        tempLow: 0,
+        stateLow: ["ice", "vanadium_catalyst"]
 
      };
  // ---------------- Radioactive Ore ----------------
@@ -420,6 +426,8 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         density: 2800,
         tempLow: 0,
         stateLow: ["irradiated_ice", "radioactive_ore"],
+        tempHigh: 100,
+        stateHigh: ["rad_steam", "radioactive_ore"],
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -461,9 +469,9 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
     elements.unenriched_uranium = {
         color: ["#456340", "#163819", "#325421",],
         behavior: [ 
-         "M1 AND CR:radiation%.03|M1 AND CR:radiation%.03|M1 AND CR:radiation%.03",
-         "M1 AND CR:radiation%.03|XX|M1 AND CR:radiation%.03",
-         "M1 AND CR:radiation%.03|M1 AND CR:radiation%.03|M1 AND CR:radiation%.03",
+         "M1 AND CR:radiation%.03 AND CH:water>irradiated_water%1.5|M1 AND CR:radiation%.03 AND CH:water>irradiated_water%1.5|M1 AND CR:radiation%.03 AND CH:water>irradiated_water%1.5",
+         "M1 AND CR:radiation%.03 AND CH:water>irradiated_water%1.5|XX|M1 AND CR:radiation%.03 AND CH:water>irradiated_water%1.5",
+         "M1 AND CR:radiation%.03 AND CH:water>irradiated_water%1.5|M1 AND CR:radiation%.03 AND CH:water>irradiated_water%1.5|M1 AND CR:radiation%.03 AND CH:water>irradiated_water%1.5",
     ],
         category: "gases",
         state: "gas",
@@ -538,9 +546,9 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
     elements.enrichment_laser = {
         color: "#ff0000",
         behavior: [ 
-         "CR:radiation%.05|CR:radiation%.05|CR:radiation%.05",
-         "CR:radiation%.05|DL%3.5|CR:radiation%.05",
-         "CR:radiation%.05|M1 AND BO|CR:radiation%.05",
+         "CR:radiation%.05 AND CH:water>irradiated_water%1.5|CR:radiation%.05 AND CH:water>irradiated_water%1.5|CR:radiation%.05 AND CH:water>irradiated_water%1.5",
+         "CR:radiation%.05 AND CH:water>irradiated_water%1.5|DL%3.5|CR:radiation%.05 AND CH:water>irradiated_water%1.5",
+         "CR:radiation%.05 AND CH:water>irradiated_water%1.5|M1 AND BO AND CH:water>irradiated_water%1.5|CR:radiation%.05 AND CH:water>irradiated_water%1.5",
     ],
         category: "energy",
         state: "gas",
@@ -656,6 +664,8 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         state: "liquid",
         tempLow: 0,
         stateLow: ["dirty_ice", "bauxite"],
+        tempHigh: 100,
+        stateHigh: ["carbon_dioxide", "steam", "vanadium_ore"],
         density: 1450,
                   tick: function(pixel) {
             let coords = [
