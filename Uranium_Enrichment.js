@@ -1859,6 +1859,45 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };
+ // ---------------- Nitric Dioxide ----------------
+    elements.nitric_oxide = {
+        color: "#ffffff",
+        behavior: behaviors.GAS,
+        category: "gases",
+        state: "gas",
+        density: 1.34,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "oxygen") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "nitric_dioxide");
+                        deletePixel(c.x, c.y);
+						                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "hydrogen") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "hydrogen_nitric_oxide");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+                    }
+                }
+            }
+        }
+     };
  // ---------------- Hydrogen Nitric Oxide ----------------
     elements.hydrogen_nitric_oxide = {
         color: "#8ab4cf",
@@ -1930,6 +1969,15 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 }
             }
         }
+		 };
+ // ---------------- Sulfuric Acid Platinum Catalyst ----------------
+    elements.sulfuric_acid_platinum_catalyst = {
+        color: ["#edf0f2","#dfecf5","#c5cdd4"],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 19460,
+		
 		 };
  // ---------------- Aqueous Ammonia ----------------
     elements.aqueous_ammonia = {
