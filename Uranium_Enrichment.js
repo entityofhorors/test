@@ -1343,7 +1343,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
         behavior: [
 	 "XX|XX|XX",
-		"XX|RL:radiation%1 AND CH:lead%0.001|XX",
+		"XX|RL:radiation%1 AND CH:spent_uranium_fuel%0.0007|XX",
 		"M2|M1|M2"
 	],
         category: "powders",
@@ -1471,7 +1471,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };
- // ---------------- Shielded Bomb Shells ----------------
+ // ---------------- Inert Nuke ----------------
     elements.inert_nuke = {
         color: "#534636",
         behavior: behaviors.POWDER,
@@ -1503,6 +1503,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };
+
 elements.neutron.reactions = {"reactor_grade_uranium": { temp2:100 }},
 elements.steel.breakInto = "crushed_steel"
 elements.silver.breakInto = "silver_powder"
