@@ -53,7 +53,7 @@
         tempLow: 0,
         stateLow: ["dirty_ice", "vanadium_ore"],
         tempHigh: 100,
-        stateHigh: ["carbon_dioxide", "steam", "vanadium_ore"]
+        stateHigh: ["carbon_dioxide", "steam", "vanadium_ore"],
         density: 2500,
                   tick: function(pixel) {
             let coords = [
