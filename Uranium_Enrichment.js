@@ -1385,6 +1385,28 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 			reactions: {
 		"neutron": { elem1:"n_explosion", tempMin:200, chance:0.1 }
 	},
+			                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "enrichment_laser") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "reactor_grade_uranium_vapor");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
 	};
  // ---------------- Reactor Grade Uranium Vapor----------------
     elements.reactor_grade_uranium_vapor = {
@@ -1599,20 +1621,43 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 			reactions: {
 		"neutron": { elem1:"n_explosion", tempMin:100, chance:0.1 }
 	},
+				tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "enrichment_laser") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "fuel_grade_uranium_vapor");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
 	};
  // ---------------- Fuel Grade Uranium Vapor----------------
     elements.fuel_grade_uranium_vapor = {
         color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
         behavior: [
 	    "M2|M1|M2",
-		"M1|RL:radiation%1 AND CH:spent_uranium_fuel%0.0007|M1",
+		"M1|RL:radiation%2 AND CH:spent_uranium_fuel%0.0007|M1",
 		"M2|M1|M2"
 	],
         category: "gases",
         state: "gas",
+		temp: 3000,
         density: 17100,
 			reactions: {
-		"neutron": { elem1:"n_explosion", tempMin:500, chance:0.1 }
+		"neutron": { elem1:"n_explosion", tempMin:300, chance:0.1 }
 	},
 	                  tick: function(pixel) {
             let coords = [
@@ -1629,8 +1674,8 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 if (!n) continue;
 
                 if (n.element === "high_power_enrichment_laser") {
-                    if (Math.random() < 0.00015) {
-                    if (Math.random()<0.35){changePixel(pixel, "molten_fuel_grade_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
+                    if (Math.random() < 0.000075) {
+                    if (Math.random()<0.35){changePixel(pixel, "molten_weapons_grade_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
                         deletePixel(c.x, c.y);
                         
                       }
@@ -1638,7 +1683,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 }
         }
      };
-// ---------------- Enrichment Laser ----------------
+// ---------------- HP Enrichment Laser ----------------
     elements.high_power_enrichment_laser = {
         color: "#0088ff",
         behavior: [ 
@@ -1651,8 +1696,106 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         density: 19050,
         temp: 10000,
      };
-elements.neutron.reactions = {"fuel_grade_uranium": { temp2:120 }},
-elements.neutron.reactions = {"reactor_grade_uranium": { temp2:100 }},
+ // ---------------- Weapons Grade Uranium ----------------
+    elements.weapons_grade_uranium = {
+        color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
+        behavior: [
+	 "XX|XX|XX",
+		"XX|RL:radiation%3 AND CH:spent_uranium_fuel%0.0007|XX",
+		"M2|M1|M2"
+	],
+        category: "powders",
+        state: "solid",
+		tempHigh: 1132.2,
+        density: 19100,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:150, chance:0.1 }
+	},
+	                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "high_power_enrichment_laser") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "weapons_grade_uranium_vapor");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };	
+ // ---------------- Molten Weapons Grade Uranium ----------------
+    elements.molten_weapons_grade_uranium = {
+        behavior: behaviors.RADMOLTEN,
+        category: "states",
+        state: "liquid",
+        density: 17300,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:100, chance:0.1 }
+	},
+				tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "enrichment_laser") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "weapons_grade_uranium_vapor");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+	};
+ // ---------------- Weapons Grade Uranium Vapor----------------
+    elements.weapons_grade_uranium_vapor = {
+        color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
+        behavior: [
+	    "M2|M1|M2",
+		"M1|RL:radiation%4 AND CH:spent_uranium_fuel%0.0007|M1",
+		"M2|M1|M2"
+	],
+        category: "gases",
+        state: "gas",
+		temp: 3000,
+        density: 17100,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:100, chance:0.1 }
+	    },
+     };
+elements.neutron.reactions = {
+	    "weapons_grade_uranium": { temp2:100 },
+	    "fuel_grade_uranium": { temp2:100 },
+	    "reactor_grade_uranium": { temp2:100 },
+		"plant": { elem2:"wood", chance:0.05 },
+		"gunpowder": { elem2:"dust", chance:0.05 },
+		"yeast": { elem2:"bread", chance:0.05 },
+		"silver": { elem1:["radiation",null,null], chance:0.25 },
+		"firework": { func(pixel1,pixel2){pixel2.burning=true;pixel2.burnStart=pixelTicks}, chance:0.01 },
+		"glass": { elem1:null, elem2:"rad_glass" },
+		"glass_shard": { elem1:null, elem2:"rad_shard" },
+		"cloud": { elem1:null, elem2:"rad_cloud" },
+		"rain_cloud": { elem1:null, elem2:"rad_cloud" }
+	},
 elements.steel.breakInto = "crushed_steel"
 elements.silver.breakInto = "silver_powder"
 delete elements.uranium
