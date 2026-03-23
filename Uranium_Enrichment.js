@@ -1899,6 +1899,38 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 		tempHigh: 1786,
 		breakInto: "platinum_catalyst"
 		 };
+ // ---------------- Platinum Catalyst ----------------
+    elements.platinum_catalyst = {
+        color: ["#c5ccd1","#cad7e0","#aaafb3"],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 21460,
+		tempHigh: 1786,
+		stateHigh: "molten_platinum"
+		                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "sulfuric_acid") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "sulfuric_acid_platinum_catalyst");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+		 };
  // ---------------- Aqueous Ammonia ----------------
     elements.aqueous_ammonia = {
         color: "#b3c48f",
