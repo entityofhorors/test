@@ -1268,7 +1268,6 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                     }
                 }
             }
-        }
      };
  // ---------------- Sour Gas ----------------
     elements.sour_gas = {
