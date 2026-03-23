@@ -617,8 +617,8 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
             }
         }
     };
-      // ---------------- Potassium Oxide ----------------
-    elements.potassium_oxide = {
+      // ---------------- Activated Vanadium Pentoxide ----------------
+    elements.activated_vanadium_pentoxide = {
         color: ["#8a5c00", "#ab6702", "#784e00",],
         behavior: behaviors.POWDER,
         category: "powders",
@@ -908,6 +908,9 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
         tempHigh: 0,
         stateHigh: "irradiated_water",
      };
+
+
+
 
 
 if (!elements.copper.reactions){elements.copper.reactions = {}}
