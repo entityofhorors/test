@@ -869,7 +869,7 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
      };
  // ---------------- Iradiated_Water ----------------
     elements.irradiated_water = {
-        color: ["#209e56", "#209e2f", "#0d4d27",],
+        color: ["#209e56", "#209e2f", "#0d7a20",],
         behavior: [ 
          "CR:radiation%.02|CR:radiation%.02|CR:radiation%.02",
          "M2 AND CR:radiation%.02|XX|M2 AND CR:radiation%.02",
