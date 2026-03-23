@@ -1338,7 +1338,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         burnTime: 500,
         burnInto: ["carbon_dioxide", "methane"],
     };
- // ---------------- Zinc-Alumina Catalyst ----------------
+ // ---------------- Reactor Grade Uranium ----------------
     elements.reactor_grade_uranium = {
         color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
         behavior: [
@@ -1372,10 +1372,107 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };
+ // ---------------- Crushed Steel ----------------
+    elements.crushed_steel = {
+        color: ["#8c939c", "#6f757d", "#5c636b",],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 7850,
+		tempHigh: 1456,
+		stateHigh: "molten_steel"
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
 
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
 
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "aluminum") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "bomb_shells");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Bomb Shells ----------------
+    elements.bomb_shells = {
+        color: ["#8c939c", "#919191", "#737373",],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 10497,
+	    tempHigh: 800,
+		stateHigh: ["molten_steel", "molten_aluminum"],
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "lead") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "shielded_bomb_shells");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Shielded Bomb Shells ----------------
+    elements.shielded_bomb_shells = {
+        color: ["#8c939c", "#919191", "#737373",],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 10497,
+	    tempHigh: 800,
+		stateHigh: ["molten_steel", "molten_aluminum", "molten_lead"],
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "weapons_grade_uranium") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "inactive_nuke");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
+
+elements.steel.breakInto = "crushed_steel"
 elements.silver.breakInto = "silver_powder"
 delete elements.uranium
+delete elements.molten_uranium
 
 if (!elements.copper.reactions){elements.copper.reactions = {}}
 elements.copper.reactions.molten_salt = {charged: true, elem2: ["chlorine", "molten_sodium"]}
