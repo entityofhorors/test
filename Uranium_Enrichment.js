@@ -852,11 +852,20 @@ elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxid
      };
  // ---------------- Hydrofluric Acid ----------------
     elements.hydrofluric_acid = {
-        color: "#919191",
+        color: "#b3c4af",
         behavior: behaviors.LIQUID,
         category: "liquids",
         state: "liquid",
         density: 1200,
+     };
+ // ---------------- Calcium Floride ----------------
+    elements.calcium_fluoride = {
+        color: ["#b5b5b5", "#85715e", "#6b553f",],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 3100,
+        
      };
 
 
