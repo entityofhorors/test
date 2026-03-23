@@ -186,29 +186,7 @@ if (!elements.oxygen.reactions) { elements.oxygen.reactions = {} }
 elements.oxygen.reactions.potassium = { "elem1":null, "elem2":"potassium_peroxide"};
 if (!elements.mercury.reactions) { elements.mercury.reactions = {} }
 elements.mercury.reactions.potassium = { "elem1":null, "elem2":"mercuric_chloride"};
-elements.hydrodgen = { tick: function(pixel) {
-            let coords = [
-                {x: pixel.x+1, y: pixel.y},
-                {x: pixel.x-1, y: pixel.y},
-                {x: pixel.x, y: pixel.y+1},
-                {x: pixel.x, y: pixel.y-1},
-            ];
 
-            for (let c of coords) {
-                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
-
-                let n = pixelMap[c.x][c.y];
-                if (!n) continue;
-
-                if (n.element === "limestone") {
-                    if (Math.random() < 0.1) {
-                        changePixel(pixel, "calcium_sulfate");
-                        deletePixel(c.x, c.y);
-                    }
-                }
-            }
-        }
-     }
     elements.coal = {
         color: ["#303030", "#212121", "#121212"],
         behavior: behaviors.POWDER,
