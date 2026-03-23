@@ -693,7 +693,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         }
      };
  // ---------------- Molten Bauxite ----------------
-    elements.molten_vanadium_ore = {
+    elements.molten_bauxite_ore = {
         color: ["#deae00", "#960000", "#d43f00",],
         behavior: behaviors.MOLTEN,
         category: "states",
@@ -1338,6 +1338,40 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         burnTime: 500,
         burnInto: ["carbon_dioxide", "methane"],
     };
+ // ---------------- Zinc-Alumina Catalyst ----------------
+    elements.reactor_grade_uranium = {
+        color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
+        behavior: [
+	 "XX|XX|XX",
+		"XX|RL:radiation%1 AND CH:lead%0.001|XX",
+		"M2|M1|M2"
+	],,
+        category: "powders",
+        state: "solid",
+        density: 1450,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "hydrogen") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "hydrogen_zinc_alumina_catalyst");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };
 
 
 elements.silver.breakInto = "silver_powder"
