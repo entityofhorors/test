@@ -10,7 +10,6 @@
         state: "solid",
         density: 3000,
         tempHigh: 1500,
-        stateHigh: "molten_vanadium_ore",
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -33,17 +32,6 @@
             }
          }
      };
- // ---------------- Molten Vanadium Ore ----------------
-    elements.molten_vanadium_ore = {
-        color: ["#deae00", "#960000", "#d43f00",],
-        behavior: behaviors.MOLTEN,
-        category: "states",
-        state: "liquid",
-        density: 3500,
-        temp: 1500,
-        tempLow: 1500,
-        stateLow: "vanadium_ore",
-    };
  // ---------------- Vanadium Slurry ----------------
     elements.vanadium_slurry = {
         color: "#7a7a7a",
@@ -120,14 +108,6 @@
      };
  // ---------------- Molten Vanadium ----------------
     elements.molten_vanadium = {
-        color: ["#ff8000", "#ff4d00", "#ff1e00"],
-        behavior: behaviors.MOLTEN,
-        category: "states",
-        state: "liquid",
-        density: 6110,
-        temp: 1900,
-        tempLow: 1900,
-        stateLow: "vanadium",
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
