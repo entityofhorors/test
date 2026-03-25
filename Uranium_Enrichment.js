@@ -1840,7 +1840,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         }
      };
  // ---------------- Nitric Dioxide ----------------
-    elements.nitric_oxide = {
+    elements.nitric_dioxide = {
         color: "#ffffff",
         behavior: behaviors.GAS,
         category: "gases",
@@ -1862,14 +1862,14 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 
                 if (n.element === "oxygen") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "nitric_dioxide");
+                        changePixel(pixel, "nitric_acid");
                         deletePixel(c.x, c.y);
 						                let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
                 if (n.element === "hydrogen") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "hydrogen_nitric_oxide");
+                        changePixel(pixel, "nitric_oxide");
                         deletePixel(c.x, c.y);
                     }
                 }
