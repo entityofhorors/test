@@ -160,7 +160,7 @@ Ammonia (B)(G) + Burning (PRO) = Nitric_Oxide (G)
 
 Nitric_Oxide (G) + Oxygen (B)(G) = Nitic_Dioxide (G) 
 
-Nitic_Dioxide (G) + Water (B)(L) = Nitric_Acid (L) And Nitic_Oxide (G) UA
+Nitic_Dioxide (G) + Water (B)(L) = Nitric_Acid (L) And Nitic_Oxide (G) 
 
 Nitric_Acid (L) + Sulfuric_Acid (L) = Concentrated_Nitric_Acid (L) UA
 
