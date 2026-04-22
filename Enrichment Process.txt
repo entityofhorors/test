@@ -172,9 +172,7 @@ Platinum_Catalyst (P) + Sulfuric_Acid (L) = Sulfuric_Acid_Platinum_Catalyst (P)
 
 Hydrogen_Nitic_Oxide (G) + Sulfuric_Acid_Platinum_Catalyst (P) = Hydroxylammonium_Sulfate (P) UA
 
-Ammonia (B)(G) + Water (B)(L) = Aqueous_Ammonia (L) 
-
-Hydroxylammonium_Sulfate (P) + Aqueous_Ammonia (L) = Hydroxylamine (P) UA
+Hydroxylammonium_Sulfate (P) + Liquid_Ammonia (B)(L) = Hydroxylamine (P) UA
 
 Spent_Nuclear_Fuel (P) + Concentrated_Nitric_Acid (L) = Heavy_Actinide_Saturated_Kerosene (L) And Aqueous_Fission_Products (L) UA
 
