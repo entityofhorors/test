@@ -7,6 +7,7 @@ Enrichment Process: {
 (S) = Solid
 (E) = Energy
 (PRO) = Process (All processes are base)
+The Temprature Required Of Reations Will Be Specified When Pertinent (TEMPC)
 
 Sulfuric Acid Production: {
 
@@ -162,7 +163,7 @@ Nitric_Oxide (G) + Oxygen (B)(G) = Nitic_Dioxide (G)
 
 Nitic_Dioxide (G) + Water (B)(L) = Nitric_Acid (L) And Nitic_Oxide (G) 
 
-Nitric_Acid (L) + Sulfuric_Acid (L) = Concentrated_Nitric_Acid (L) UA
+Nitric_Acid (L) + Sulfuric_Acid (L) = Concentrated_Nitric_Acid (L) 
 
 Nitric_Oxide (G) + Hydrogen (B)(G) = Hydrogen_Nitic_Oxide (G) 
 
@@ -174,7 +175,11 @@ Hydrogen_Nitic_Oxide (G) + Sulfuric_Acid_Platinum_Catalyst (P) = Hydroxylammoniu
 
 Hydroxylammonium_Sulfate (P) + Liquid_Ammonia (B)(L) = Hydroxylamine (P) UA
 
-Spent_Nuclear_Fuel (P) + Concentrated_Nitric_Acid (L) = Heavy_Actinide_Saturated_Kerosene (L) And Aqueous_Fission_Products (L) UA
+Spent_Nuclear_Fuel (P) + Concentrated_Nitric_Acid (L) = Dissolved_Spent_Nuclear_Fuel (L) UA
+
+Oil (B)(L) + Heat (B)(PRO)(400C) = Lamp_Oil (B)(L)
+
+Dissolved_Spent_Nuclear_Fuel (L) + Lamp_Oil (B)(L) = Heavy_Actinide_Saturated_Kerosene (L) And Aqueous_Fission_Products (L) UA
 
 Aqueous_Fission_Products (L) + Hydroxylamine (P) = Reactor_Grade_Uranium (P) And Aqueous_Reactor_Grade_Plutonium (L) UA
 
