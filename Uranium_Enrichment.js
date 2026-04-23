@@ -1864,15 +1864,38 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "nitric_acid");
                         deletePixel(c.x, c.y);
-						                let n = pixelMap[c.x][c.y];
-                if (!n) continue;
 
-                if (n.element === "hydrogen") {
-                    if (Math.random() < 0.1) {
-                        changePixel(pixel, "nitric_oxide");
-                        deletePixel(c.x, c.y);
                     }
                 }
+            }
+        }
+     };
+ // ---------------- Nitric Acid ----------------
+    elements.nitric_acid = {
+        color: "#fff7ad",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 1.34,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "sufuric_acid") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "concentrated_nitric_acid");
+                        deletePixel(c.x, c.y);
+
                     }
                 }
             }
@@ -1959,15 +1982,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         density: 19460,
 		
 		 };
- // ---------------- Aqueous Ammonia ----------------
-    elements.aqueous_ammonia = {
-        color: "#b3c48f",
-        behavior: behaviors.LIQUID,
-        category: "liquids",
-        state: "liquid",
-        density: 900,
 
-     };
 elements.neutron.reactions = {
 	    "weapons_grade_uranium": { temp2:100 },
 	    "fuel_grade_uranium": { temp2:100 },
@@ -1982,39 +1997,7 @@ elements.neutron.reactions = {
 		"cloud": { elem1:null, elem2:"rad_cloud" },
 		"rain_cloud": { elem1:null, elem2:"rad_cloud" }
 	},
-elements.ammonia.reactions = {
-		"methane": { elem1:["hydrogen","water"], elem2:"cyanide_gas", chance:0.25 },
-		"vinegar": { elem1:"salt_water", elem2:"salt_water", chance:0.05 },
-		"plant": { elem1:"plant", chance:0.05 },
-		"evergreen": { elem1:"evergreen", chance:0.05 },
-		"cactus": { elem1:"cactus", chance:0.05 },
-		"wheat": { elem1:"wheat", chance:0.05 },
-		"wheat_seed": { elem1:"wheat", chance:0.05 },
-		"grass": { elem1:"grass", chance:0.05 },
-		"grass_seed": { elem1:"grass", chance:0.05 },
-		"bamboo_plant": { elem1:"bamboo", chance:0.05 },
-		"flower_seed": { elem1:"flower_seed", chance:0.05 },
-		"petal": { elem1:"flower_seed", chance:0.05 },
-		"vine": { elem1:"vine", chance:0.05 },
-		"sapling": { elem1:"tree_branch", chance:0.05 },
-		"tree_branch": { elem1:"tree_branch", chance:0.05 },
-		"corn_seed": { elem1:"corn", chance:0.05 },
-		"root": { elem1:"root", chance:0.05 },
-		"dirt": { elem1:"grass", chance:0.05 },
-		"mud": { elem1:"grass", chance:0.05 },
-		"water": { elem1:null, elem2: "aqueous_ammonia" },
-		"kelp": { elem1:["kelp","algae"], chance:0.005 },
-		"coral": { elem1:"coral", chance:0.005 },
-		"potato_seed": { elem1:"potato", chance:0.05 },
-		"pumpkin_seed": { elem1:"pumpkin", chance:0.05 },
-		"herb": { elem1:"herb", chance:0.05 },
-		"lettuce": { elem1:"lettuce", chance:0.05 },
-		"yeast": { elem1:"yeast", chance:0.05 },
-		"fish": { elem2:"meat", chance:0.05 },
-		"bird": { elem2:"meat", chance:0.05 },
-		"frog": { elem2:"meat", chance:0.05 },
-		"rat": { elem2:"rotten_meat", chance:0.05 },
-}
+
 elements.ammonia.burnInto = "nitric_oxide"
 elements.ammonia.burnTime = 75
 elements.ammonia.burn = 25,
