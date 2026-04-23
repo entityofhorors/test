@@ -11,7 +11,7 @@ The Temprature Required Of Reations Will Be Specified When Pertinent (TEMPC)
 
 Sulfuric Acid Production: {
 
-Water (B)(L) + Superheating (PRO) = Oxygen + Hydrogen
+Water (B)(L) + Superheating (PRO)(3000C) = Oxygen + Hydrogen
 
 Vanadium Processing: [
 
