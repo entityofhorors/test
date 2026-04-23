@@ -104,11 +104,9 @@
         state: "solid",
         density: 6110,
         tempHigh: 1900,
-        stateHigh: "molten_vanadium",
      };
  // ---------------- Molten Vanadium ----------------
     elements.molten_vanadium = {
-		          category: "states",
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
