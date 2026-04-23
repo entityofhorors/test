@@ -108,6 +108,7 @@
      };
  // ---------------- Molten Vanadium ----------------
     elements.molten_vanadium = {
+		          category: "states",
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -1873,6 +1874,37 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
  // ---------------- Nitric Acid ----------------
     elements.nitric_acid = {
         color: "#fff7ad",
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 1.34,
+                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "sufuric_acid") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "concentrated_nitric_acid");
+                        deletePixel(c.x, c.y);
+
+                    }
+                }
+            }
+        }
+     };
+ // ---------------- Concentrated Nitric Acid ----------------
+    elements.concentrated_nitric_acid = {
+        color: "#fffbd6",
         behavior: behaviors.LIQUID,
         category: "liquids",
         state: "liquid",
