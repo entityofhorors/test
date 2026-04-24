@@ -1830,7 +1830,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 
                 if (n.element === "lamp_oil") {
                     if (Math.random() < 0.000075) {
-                    if (Math.random()<0.35){changePixel(pixel, "molten_weapons_grade_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
+                    if (Math.random()<0.35){changePixel(pixel, "heavy_actinide_saturated_kerosene")} else {changePixel(pixel, "fission_product_saturated_kerosene")}
                         deletePixel(c.x, c.y);
                     }
                 }
@@ -2075,7 +2075,9 @@ elements.neutron.reactions = {
 		"rain_cloud": { elem1:null, elem2:"rad_cloud" }
 	},
 
-elements.ammonia.burnInto = "nitric_oxide"
+elements.ammonia.burnInto = ["nitric_oxide","fire"],
+elements.oil.burnInto = ["fossil_fuel_emmisions","fire"],
+elements.lamp_oil.burnInto = ["fossil_fuel_emmisions","fire"],
 elements.ammonia.burnTime = 75
 elements.ammonia.burn = 25,
 elements.steel.breakInto = "crushed_steel"
