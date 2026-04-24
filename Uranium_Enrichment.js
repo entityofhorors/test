@@ -1837,6 +1837,82 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };	
+	 // ---------------- Heavy Actinide Saturated Kerosene ----------------
+    elements.heavy_actinide_saturated_kerosene = {
+        color: ["#b3b38b","#33314d","#494d4a"],,
+        behavior: [
+	 "XX|XX|XX",
+		"M2|RL:radiation%3|M2",
+		"M1|M1|M1"
+	],
+        category: "liquids",
+        state: "liquid",
+		tempHigh: 1132.2,
+        density: 11000,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:600, chance:0.1 }
+	},
+	                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "lamp_oil") {
+                    if (Math.random() < 0.000075) {
+                    if (Math.random()<0.35){changePixel(pixel, "heavy_actinide_saturated_kerosene")} else {changePixel(pixel, "fission_product_saturated_kerosene")}
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };	
+	 // ---------------- Fission Product Saturated Kerosene ----------------
+    elements.fission_product_saturated_kerosene = {
+        color: ["#b3b38b","#486943","#494d4a"],
+        behavior: [
+	 "XX|XX|XX",
+		"M2|RL:radiation%3|M2",
+		"M1|M1|M1"
+	],
+        category: "liquids",
+        state: "liquid",
+		tempHigh: 1132.2,
+        density: 11000,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:600, chance:0.1 }
+	},
+	                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "lamp_oil") {
+                    if (Math.random() < 0.000075) {
+                    if (Math.random()<0.35){changePixel(pixel, "heavy_actinide_saturated_kerosene")} else {changePixel(pixel, "fission_product_saturated_kerosene")}
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };	
  // ---------------- Nitric Oxide ----------------
     elements.nitric_oxide = {
         color: "#ffffff",
