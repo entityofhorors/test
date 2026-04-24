@@ -1322,7 +1322,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
         behavior: [
 	 "XX|XX|XX",
-		"XX|RL:radiation%1 AND CH:spent_uranium_fuel%0.0007|XX",
+		"XX|RL:radiation%1 AND CH:spent_nuclear_fuel%0.0007|XX",
 		"M2|M1|M2"
 	],
         category: "powders",
@@ -1392,7 +1392,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
         behavior: [
 	    "M2|M1|M2",
-		"M1|RL:radiation%1 AND CH:spent_uranium_fuel%0.0007|M1",
+		"M1|RL:radiation%1 AND CH:spent_nuclear_fuel%0.0007|M1",
 		"M2|M1|M2"
 	],
         category: "gases",
@@ -1558,7 +1558,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
         behavior: [
 	 "XX|XX|XX",
-		"XX|RL:radiation%1 AND CH:spent_uranium_fuel%0.0007|XX",
+		"XX|RL:radiation%1 AND CH:spent_nuclear_fuel%0.0007|XX",
 		"M2|M1|M2"
 	],
         category: "powders",
@@ -1763,7 +1763,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
      };
 	 // ---------------- Spent Nuclear Fuel ----------------
     elements.spent_nuclear_fuel = {
-        color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
+        color: ["#a6a6a6","#949494","#494d4a","#8a8a8a","#787878","#b5b5b5"],
         behavior: [
 	 "XX|XX|XX",
 		"XX|RL:radiation%3|XX",
@@ -1774,7 +1774,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 		tempHigh: 1132.2,
         density: 19100,
 			reactions: {
-		"neutron": { elem1:"n_explosion", tempMin:150, chance:0.1 }
+		"neutron": { elem1:"n_explosion", tempMin:600, chance:0.1 }
 	},
 	                  tick: function(pixel) {
             let coords = [
@@ -1790,7 +1790,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "high_power_enrichment_laser") {
+                if (n.element === "concentrated_nitic_acid") {
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "weapons_grade_uranium_vapor");
                         deletePixel(c.x, c.y);
@@ -1844,7 +1844,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         behavior: behaviors.GAS,
         category: "gases",
         state: "gas",
-        density: 1.34,
+        density: 3.4,
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -1875,7 +1875,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         behavior: behaviors.LIQUID,
         category: "liquids",
         state: "liquid",
-        density: 1.34,
+        density: 1413,
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -1906,7 +1906,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         behavior: behaviors.LIQUID,
         category: "liquids",
         state: "liquid",
-        density: 1.34,
+        density: 1513,
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -1937,7 +1937,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         behavior: behaviors.GAS,
         category: "gases",
         state: "gas",
-        density: 1.34,
+        density: 1,
                   tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -1961,6 +1961,38 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };
+ // ---------------- Hydroxylammonium Sulfate ----------------
+    elements.hydroxylammonium_sulfate = {
+        color: ["#ffffff","#f5f5f5","#ededed"],
+        behavior: behaviors.POWDER,
+        category: "powders",
+        state: "solid",
+        density: 1100,
+		tempHigh: 1786,
+		stateHigh: "molten_platinum",
+		                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "sulfuric_acid") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "sulfuric_acid_platinum_catalyst");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+		 };
  // ---------------- Platinum ----------------
     elements.platinum = {
         color: ["#c5ccd1","#cad7e0","#aaafb3"],
@@ -2017,6 +2049,7 @@ elements.neutron.reactions = {
 	    "weapons_grade_uranium": { temp2:100 },
 	    "fuel_grade_uranium": { temp2:100 },
 	    "reactor_grade_uranium": { temp2:100 },
+	    "spent_nuclear_fuel": { temp2:50 },
 		"plant": { elem2:"wood", chance:0.05 },
 		"gunpowder": { elem2:"dust", chance:0.05 },
 		"yeast": { elem2:"bread", chance:0.05 },
