@@ -1839,7 +1839,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
      };	
 	 // ---------------- Heavy Actinide Saturated Kerosene ----------------
     elements.heavy_actinide_saturated_kerosene = {
-        color: ["#b3b38b","#33314d","#494d4a"],,
+        color: ["#b3b38b","#33314d","#494d4a"],
         behavior: [
 	 "XX|XX|XX",
 		"M2|RL:radiation%3|M2",
