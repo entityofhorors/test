@@ -1804,11 +1804,11 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         color: ["#a6a6a6","#949494","#494d4a","#8a8a8a","#787878","#b5b5b5"],
         behavior: [
 	 "XX|XX|XX",
-		"XX|RL:radiation%3|XX",
-		"M2|M1|M2"
+		"M2|RL:radiation%3|M2",
+		"M1|M1|M1"
 	],
-        category: "powders",
-        state: "solid",
+        category: "liquids",
+        state: "liquid",
 		tempHigh: 1132.2,
         density: 11000,
 			reactions: {
@@ -1829,8 +1829,8 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 if (!n) continue;
 
                 if (n.element === "lamp_oil") {
-                    if (Math.random() < 0.1) {
-                        changePixel(pixel, "dissolved_spent_nuclear_fuel");
+                    if (Math.random() < 0.000075) {
+                    if (Math.random()<0.35){changePixel(pixel, "molten_weapons_grade_uranium")} else {changePixel(pixel, "molten_depleted_uranium")}
                         deletePixel(c.x, c.y);
                     }
                 }
@@ -1898,7 +1898,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 if (!n) continue;
 
                 if (n.element === "water") {
-                    if (Math.random()<0.35){changePixel(pixel, "nitric_acid")} else {changePixel(pixel, "nitic_oxide")}
+                    if (Math.random()<0.35){changePixel(pixel, "nitric_acid")} else {changePixel(pixel, "nitric_oxide")}
                         deletePixel(c.x, c.y);
 
                 }
@@ -1943,29 +1943,6 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         category: "liquids",
         state: "liquid",
         density: 1513,
-                  tick: function(pixel) {
-            let coords = [
-                {x: pixel.x+1, y: pixel.y},
-                {x: pixel.x-1, y: pixel.y},
-                {x: pixel.x, y: pixel.y+1},
-                {x: pixel.x, y: pixel.y-1},
-            ];
-
-            for (let c of coords) {
-                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
-
-                let n = pixelMap[c.x][c.y];
-                if (!n) continue;
-
-                if (n.element === "sufuric_acid") {
-                    if (Math.random() < 0.1) {
-                        changePixel(pixel, "concentrated_nitric_acid");
-                        deletePixel(c.x, c.y);
-
-                    }
-                }
-            }
-        }
      };
  // ---------------- Hydrogen Nitric Oxide ----------------
     elements.hydrogen_nitric_oxide = {
@@ -2086,6 +2063,7 @@ elements.neutron.reactions = {
 	    "fuel_grade_uranium": { temp2:100 },
 	    "reactor_grade_uranium": { temp2:100 },
 	    "spent_nuclear_fuel": { temp2:50 },
+	    "dissolved_spent_nuclear_fuel": { temp2:50 },
 		"plant": { elem2:"wood", chance:0.05 },
 		"gunpowder": { elem2:"dust", chance:0.05 },
 		"yeast": { elem2:"bread", chance:0.05 },
