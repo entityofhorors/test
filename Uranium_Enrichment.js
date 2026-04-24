@@ -1799,7 +1799,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };	
-	 // ---------------- Spent Nuclear Fuel ----------------
+	 // ---------------- Dissolved Spent Nuclear Fuel ----------------
     elements.dissolved_spent_nuclear_fuel = {
         color: ["#a6a6a6","#949494","#494d4a","#8a8a8a","#787878","#b5b5b5"],
         behavior: [
@@ -1898,11 +1898,9 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 if (!n) continue;
 
                 if (n.element === "water") {
-                    if (Math.random() < 0.1) {
-                        changePixel(pixel, ["nitric_acid","nitric_oxide"]);
+                    if (Math.random()<0.35){changePixel(pixel, "nitric_acid")} else {changePixel(pixel, "nitic_oxide")}
                         deletePixel(c.x, c.y);
 
-                    }
                 }
             }
         }
