@@ -1772,7 +1772,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         category: "powders",
         state: "solid",
 		tempHigh: 1132.2,
-        density: 19100,
+        density: 11000,
 			reactions: {
 		"neutron": { elem1:"n_explosion", tempMin:600, chance:0.1 }
 	},
@@ -1792,7 +1792,45 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 
                 if (n.element === "concentrated_nitic_acid") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "weapons_grade_uranium_vapor");
+                        changePixel(pixel, "dissolved_spent_nuclear_fuel");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };	
+	 // ---------------- Spent Nuclear Fuel ----------------
+    elements.dissolved_spent_nuclear_fuel = {
+        color: ["#a6a6a6","#949494","#494d4a","#8a8a8a","#787878","#b5b5b5"],
+        behavior: [
+	 "XX|XX|XX",
+		"XX|RL:radiation%3|XX",
+		"M2|M1|M2"
+	],
+        category: "powders",
+        state: "solid",
+		tempHigh: 1132.2,
+        density: 11000,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:600, chance:0.1 }
+	},
+	                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "lamp_oil") {
+                    if (Math.random() < 0.1) {
+                        changePixel(pixel, "dissolved_spent_nuclear_fuel");
                         deletePixel(c.x, c.y);
                     }
                 }
@@ -1859,9 +1897,9 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "oxygen") {
+                if (n.element === "water") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "nitric_acid");
+                        changePixel(pixel, ["nitric_acid","nitric_oxide"]);
                         deletePixel(c.x, c.y);
 
                     }
