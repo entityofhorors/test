@@ -2164,7 +2164,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 		tempHigh: 1132.2,
         density: 19100,
 			reactions: {
-		"neutron": { elem1:"n_explosion", tempMin:350, chance:0.01 }
+		"neutron": { elem1:"n_explosion", tempMin:350, chance:0.01 }}
 	},
  // ---------------- Nitric Oxide ----------------
     elements.nitric_oxide = {
