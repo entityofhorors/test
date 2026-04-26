@@ -1350,9 +1350,8 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "reactor_grade_uranium_vapor");
                         deletePixel(c.x, c.y);
-
-                let n = pixelMap[c.x][c.y];
-                if (!n) continue;
+					}
+				}
 						
 				if (n.element === "nitric_acid") {
                     if (Math.random() < 0.001) {
@@ -1360,8 +1359,8 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                         deletePixel(c.x, c.y);
                     }
                 }
-                    }
-                }
+                    
+                
             }
         }
      };	
