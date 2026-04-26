@@ -1350,6 +1350,12 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "reactor_grade_uranium_vapor");
                         deletePixel(c.x, c.y);
+						                if (n.element === "nitric_acid") {
+                    if (Math.random() < 0.001) {
+                        changePixel(pixel, "uranyl_nitrate");
+                        deletePixel(c.x, c.y);
+                    }
+                }
                     }
                 }
             }
@@ -1909,14 +1915,70 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
      };	
  // ---------------- Uranium Saturated Kerosene ----------------
     elements.uranium_saturated_kerosene = {
-        color: ["#b3b38b","#486943","#494d4a"],
-        behavior: behaviors.LIQUID,
+        color: ["#b3b38b","#486943"],
+        behavior: [
+	 "XX|XX|XX",
+		"M2|RL:radiation%1|M2",
+		"M1|M1|M1"
+	],
         category: "liquids",
         state: "liquid",
         density: 16000,
 		tempHigh: 37,
 		stateHigh: ["fire","smoke","reactor_grade_uranium"],
      };
+ // ---------------- Aqueous Plutonium ----------------
+    elements.aqueous_plutonium = {
+        color: ["#2167ff","#494d4a"],
+        behavior: [
+	 "XX|XX|XX",
+		"M2|RL:radiation%3|M2",
+		"M1|M1|M1"
+	],
+        category: "liquids",
+        state: "liquid",
+        density: 16000,
+		tempHigh: 100,
+		stateHigh: ["steam","plutonium"],
+     };
+ // ---------------- Plutonium ----------------
+    elements.plutonium = {
+        color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
+        behavior: [
+	 "XX|XX|XX",
+		"XX|RL:radiation%3|XX",
+		"M2|M1|M2"
+	],
+        category: "powders",
+        state: "solid",
+		tempHigh: 1132.2,
+        density: 19840,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:125, chance:0.1 }
+	},
+	                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "nitric_acid") {
+                    if (Math.random() < 0.001) {
+                        changePixel(pixel, "plutonium_nitrate");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };	
  // ---------------- Nitric Oxide ----------------
     elements.nitric_oxide = {
         color: "#ffffff",
@@ -2150,6 +2212,7 @@ elements.neutron.reactions = {
 	    "reactor_grade_uranium": { temp2:100 },
 	    "spent_nuclear_fuel": { temp2:50 },
 	    "dissolved_spent_nuclear_fuel": { temp2:50 },
+	    "plutonium": { temp2:100 },
 		"plant": { elem2:"wood", chance:0.05 },
 		"gunpowder": { elem2:"dust", chance:0.05 },
 		"yeast": { elem2:"bread", chance:0.05 },
