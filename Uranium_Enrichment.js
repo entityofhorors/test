@@ -176,14 +176,14 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         density: 1400,
         burn: 45,
         burnTime: 1000,
-        burnInto: "fossil_feul_emissions",
+        burnInto: "fossil_fuel_emissions",
         tempHigh: 2500,
-        stateHigh: "fossil_feul_emissions",
+        stateHigh: "fossil_fuel_emissions",
         
 
      };
- // ---------------- Fossil Feul Emissions ----------------
-    elements.fossil_feul_emissions = {
+ // ---------------- Fossil Fuel Emissions ----------------
+    elements.fossil_fuel_emissions = {
         color: "#262626",
         behavior: behaviors.GAS,
         category: "gases",
@@ -1364,6 +1364,22 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };	
+ // ---------------- Uranyl Nitrate ----------------
+    elements.uranyl_nitrate = {
+        color: ["#bdc238","#b0b85f","#b5e089"],
+        behavior: [
+	 "XX|XX|XX",
+		"XX|RL:radiation%1|XX",
+		"M2|M1|M2"
+	],
+        category: "powders",
+        state: "solid",
+        density: 19100,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:500, chance:0.1 }
+	},
+
+     };	
  // ---------------- Molten Reactor Grade Uranium ----------------
     elements.molten_reactor_grade_uranium = {
         behavior: behaviors.RADMOLTEN,
@@ -1982,6 +1998,159 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
             }
         }
      };	
+ // ---------------- Plutonium Nitrate ----------------
+    elements.plutonium_nitrate = {
+        color: ["#235c1a","#1e3820","#5b6e48"],
+        behavior: [
+	 "XX|XX|XX",
+		"XX|RL:radiation%3|XX",
+		"M2|M1|M2"
+	],
+        category: "powders",
+        state: "solid",
+        density: 19840,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:125, chance:0.1 }
+	},
+	                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "nitric_acid") {
+                    if (Math.random() < 0.001) {
+                        changePixel(pixel, "plutonium_nitrate_nitric_acid");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };	
+ // ---------------- Plutonium Nitrate Nitric Acid ----------------
+    elements.plutonium_nitrate_nitric_acid = {
+        color: ["#235c1a","#1e3820","#5b6e48"],
+        behavior: [
+	 "XX|XX|XX",
+		"M2|RL:radiation%3|M2",
+		"M1|M1|M1"
+	],
+        category: "liquids",
+        state: "liquid",
+        density: 19840,
+	                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "uranyl_nitrate") {
+                    if (Math.random() < 0.001) {
+                        changePixel(pixel, "nitrate_mixture");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };	
+ // ---------------- Nitrate Mixture ----------------
+    elements.nitrate_mixture = {
+        color: ["#235c1a","#1e3820","#5b6e48"],
+        behavior: [
+	 "XX|XX|XX",
+		"M2|RL:radiation%3|M2",
+		"M1|M1|M1"
+	],
+        category: "liquids",
+        state: "liquid",
+        density: 19840,
+	                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "ammonia") {
+                    if (Math.random() < 0.001) {
+                        changePixel(pixel, "ammonia_nitrate_mixture");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };	
+ // ---------------- Ammonia Nitrate Mixture ----------------
+    elements.ammonia_nitrate_mixture = {
+        color: ["#235c1a","#1e3820","#5b6e48"],
+        behavior: [
+	 "XX|XX|XX",
+		"M2|RL:radiation%3|M2",
+		"M1|M1|M1"
+	],
+        category: "liquids",
+        state: "liquid",
+        density: 19840,
+	                  tick: function(pixel) {
+            let coords = [
+                {x: pixel.x+1, y: pixel.y},
+                {x: pixel.x-1, y: pixel.y},
+                {x: pixel.x, y: pixel.y+1},
+                {x: pixel.x, y: pixel.y-1},
+            ];
+
+            for (let c of coords) {
+                if (!pixelMap[c.x] || !pixelMap[c.x][c.y]) continue;
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+
+                if (n.element === "hydrogen") {
+                    if (Math.random() < 0.001) {
+                        changePixel(pixel, "ammonia_nitrate_hydrogen_mixture");
+                        deletePixel(c.x, c.y);
+                    }
+                }
+            }
+        }
+     };	
+ // ---------------- Ammonia Nitrate Mixture ----------------
+    elements.ammonia_nitrate_hydrogen_mixture = {
+        color: ["#235c1a","#1e3820","#5b6e48"],
+        behavior: [
+	 "XX|XX|XX",
+		"M2|RL:radiation%3|M2",
+		"M1|M1|M1"
+	],
+        category: "liquids",
+        state: "liquid",
+        density: 19840,
+	    tempHigh: 500,
+		stateHigh: "mox_fuel",
+	};
  // ---------------- Nitric Oxide ----------------
     elements.nitric_oxide = {
         color: "#ffffff",
