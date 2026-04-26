@@ -1946,7 +1946,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
      };
  // ---------------- Plutonium ----------------
     elements.plutonium = {
-        color: ["#599e61","#364d3c","#494d4a","#6c8a42","#798d65","#b5e089"],
+        color: ["#949494","#4d4d4d","#494d4a","#949494","#808080","#e6e6e6"],
         behavior: [
 	 "XX|XX|XX",
 		"XX|RL:radiation%3|XX",
