@@ -1809,7 +1809,6 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 	],
         category: "liquids",
         state: "liquid",
-		tempHigh: 1132.2,
         density: 11000,
 			reactions: {
 		"neutron": { elem1:"n_explosion", tempMin:600, chance:0.1 }
@@ -1847,11 +1846,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 	],
         category: "liquids",
         state: "liquid",
-		tempHigh: 1132.2,
         density: 11000,
-			reactions: {
-		"neutron": { elem1:"n_explosion", tempMin:600, chance:0.1 }
-	},
 	                  tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -1885,7 +1880,6 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 	],
         category: "liquids",
         state: "liquid",
-		tempHigh: 1132.2,
         density: 11000,
 			reactions: {
 		"neutron": { elem1:"n_explosion", tempMin:600, chance:0.1 }
@@ -1904,15 +1898,25 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "lamp_oil") {
+                if (n.element === "hydroxylamine") {
                     if (Math.random() < 0.000075) {
-                    if (Math.random()<0.35){changePixel(pixel, "heavy_actinide_saturated_kerosene")} else {changePixel(pixel, "fission_product_saturated_kerosene")}
+                    if (Math.random()<0.35){changePixel(pixel, "uranium_saturated_kerosene")} else {changePixel(pixel, "aqueous_plutonium")}
                         deletePixel(c.x, c.y);
                     }
                 }
             }
         }
      };	
+ // ---------------- Uranium Saturated Kerosene ----------------
+    elements.uranium_saturated_kerosene = {
+        color: ["#b3b38b","#486943","#494d4a"],
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 16000,
+		tempHigh: 37,
+		stateHigh: ["fire","smoke","reactor_grade_uranium"],
+     };
  // ---------------- Nitric Oxide ----------------
     elements.nitric_oxide = {
         color: "#ffffff",
@@ -2057,8 +2061,6 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
         category: "powders",
         state: "solid",
         density: 1100,
-		tempHigh: 1786,
-		stateHigh: "molten_platinum",
 		                  tick: function(pixel) {
             let coords = [
                 {x: pixel.x+1, y: pixel.y},
@@ -2073,14 +2075,22 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 let n = pixelMap[c.x][c.y];
                 if (!n) continue;
 
-                if (n.element === "sulfuric_acid") {
+                if (n.element === "water") {
                     if (Math.random() < 0.1) {
-                        changePixel(pixel, "sulfuric_acid_platinum_catalyst");
+                        changePixel(pixel, "hydroxylamine");
                         deletePixel(c.x, c.y);
                     }
                 }
             }
         }
+		 };
+ // ---------------- Hydroxylamine ----------------
+    elements.hydroxylamine = {
+        color: ["#ffffff","#def5ff","#c9efff"],
+        behavior: behaviors.LIQUID,
+        category: "liquids",
+        state: "liquid",
+        density: 1210,
 		 };
  // ---------------- Platinum ----------------
     elements.platinum = {
