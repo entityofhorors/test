@@ -1350,7 +1350,11 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                     if (Math.random() < 0.1) {
                         changePixel(pixel, "reactor_grade_uranium_vapor");
                         deletePixel(c.x, c.y);
-						                if (n.element === "nitric_acid") {
+
+                let n = pixelMap[c.x][c.y];
+                if (!n) continue;
+						
+				if (n.element === "nitric_acid") {
                     if (Math.random() < 0.001) {
                         changePixel(pixel, "uranyl_nitrate");
                         deletePixel(c.x, c.y);
