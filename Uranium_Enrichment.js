@@ -1354,7 +1354,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 				}
 						
 				if (n.element === "nitric_acid") {
-                    if (Math.random() < 0.001) {
+                    if (Math.random() < 0.1) {
                         changePixel(pixel, "uranyl_nitrate");
                         deletePixel(c.x, c.y);
                     }
@@ -2027,7 +2027,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 if (!n) continue;
 
                 if (n.element === "nitric_acid") {
-                    if (Math.random() < 0.001) {
+                    if (Math.random() < 0.1) {
                         changePixel(pixel, "plutonium_nitrate_nitric_acid");
                         deletePixel(c.x, c.y);
                     }
@@ -2061,7 +2061,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 if (!n) continue;
 
                 if (n.element === "uranyl_nitrate") {
-                    if (Math.random() < 0.001) {
+                    if (Math.random() < 0.1) {
                         changePixel(pixel, "nitrate_mixture");
                         deletePixel(c.x, c.y);
                     }
@@ -2095,7 +2095,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 if (!n) continue;
 
                 if (n.element === "ammonia") {
-                    if (Math.random() < 0.001) {
+                    if (Math.random() < 0.1) {
                         changePixel(pixel, "ammonia_nitrate_mixture");
                         deletePixel(c.x, c.y);
                     }
@@ -2129,7 +2129,7 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
                 if (!n) continue;
 
                 if (n.element === "hydrogen") {
-                    if (Math.random() < 0.001) {
+                    if (Math.random() < 0.1) {
                         changePixel(pixel, "ammonia_nitrate_hydrogen_mixture");
                         deletePixel(c.x, c.y);
                     }
@@ -2151,6 +2151,21 @@ elements.hydrogen.reactions.methane = { "elem1":null, "elem2":"hydrogen_chloride
 	    tempHigh: 500,
 		stateHigh: "mox_fuel",
 	};
+ // ---------------- MOX Fuel ----------------
+    elements.mox_fuel = {
+        color: ["#599e61","#4d4d4d","#494d4a","#6e7367","#4c4d4b","#b5e089"],
+        behavior: [
+	 "XX|XX|XX",
+		"XX|RL:radiation%1.5 AND CH:spent_nuclear_fuel%0.0009|XX",
+		"M2|M1|M2"
+	],
+        category: "powders",
+        state: "solid",
+		tempHigh: 1132.2,
+        density: 19100,
+			reactions: {
+		"neutron": { elem1:"n_explosion", tempMin:350, chance:0.01 }
+	},
  // ---------------- Nitric Oxide ----------------
     elements.nitric_oxide = {
         color: "#ffffff",
