@@ -171,21 +171,41 @@ Platinum (B)(S) + Smashing (PRO) = Platinum_Catalyst (P)
 
 Platinum_Catalyst (P) + Sulfuric_Acid (L) = Sulfuric_Acid_Platinum_Catalyst (P) 
 
-Hydrogen_Nitic_Oxide (G) + Sulfuric_Acid_Platinum_Catalyst (P) = Hydroxylammonium_Sulfate (P) UA
+Hydrogen_Nitic_Oxide (G) + Sulfuric_Acid_Platinum_Catalyst (P) = Hydroxylammonium_Sulfate (P) 
 
-Hydroxylammonium_Sulfate (P) + Liquid_Ammonia (B)(L) = Hydroxylamine (P) UA
+Hydroxylammonium_Sulfate (P) + Water (B)(L) = Hydroxylamine (L) 
 
-Spent_Nuclear_Fuel (P) + Concentrated_Nitric_Acid (L) = Dissolved_Spent_Nuclear_Fuel (L) UA
+Spent_Nuclear_Fuel (P) + Concentrated_Nitric_Acid (L) = Dissolved_Spent_Nuclear_Fuel (L) 
 
 Oil (B)(L) + Heat (B)(PRO)(400C) = Lamp_Oil (B)(L)
 
-Dissolved_Spent_Nuclear_Fuel (L) + Lamp_Oil (B)(L) = Heavy_Actinide_Saturated_Kerosene (L) And Aqueous_Fission_Products (L) UA
+Dissolved_Spent_Nuclear_Fuel (L) + Lamp_Oil (B)(L) = Heavy_Actinide_Saturated_Kerosene (L) And Fission_Product_Saturated_Kerosene (L) 
 
-Aqueous_Fission_Products (L) + Hydroxylamine (P) = Reactor_Grade_Uranium (P) And Aqueous_Reactor_Grade_Plutonium (L) UA
+Fission_Product_Saturated_Kerosene (L) + Hydroxylamine (P) = Uranium_Saturated_Kerosene (P) And Aqueous_Plutonium (L) 
 
-Heavy_Actinide_Saturated_Kerosene (L) + Heat (PRO) = High_Level_Nuclear_Waste (L) UA
+Uranium_Saturated_Kerosene (P) + Heat (PRO) = Reactor_Grade_Uranium (P)
 
-High_Level_Nuclear_Waste (L) + Cooling (PRO) = High_Level_Nuclear_Waste_Ceramic (P) UA
+Aqueous_Plutonium (L) + Heat (PRO) = Plutonium (P) 
+
+MOX Fuel: {
+
+Plutonium (P) + Nitric_Acid (L) (LONG) = Plutonium_Nitrate (P) 
+
+Reactor_Grade_Uranium (P) + Nitric_Acid (L) (LONG) = Uranyl_Nitrate (P) UA
+
+Plutonium_Nitrate (P) + Nitric_Acid (L) = Plutonium_Nitrate_Nitric_Acid (L) UA
+
+Plutonium_Nitrate_Nitric_Acid (L) + Uranyl_Nitrate (P) = Nitrate_Mixture (L) UA
+
+Nitrate_Mixture (L) + Ammonia (B)(G) = Ammonia_Nitrate_Mixture (L) UA
+
+Ammonia_Nitrate_Mixture (L) + Hydrogen (B)(G) = Ammonia_Nitrate_Hydrogen_Mixture (L) UA
+
+Ammonia_Nitrate_Hydrogen_Mixture (L) + Heat (PRO) = MOX_Fuel (P) UA }
+
+Heavy_Actinide_Saturated_Kerosene (L) + Heat (PRO) = High_Level_Nuclear_Waste (P) UA
+
+High_Level_Nuclear_Waste (P) + Cooling (PRO) = High_Level_Nuclear_Waste_Ceramic (P) UA ]
 
 Msc. Reactions: [
 
